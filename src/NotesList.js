@@ -16,4 +16,9 @@ export default function NotesList({ notes }) {
   }
 }
 
-const StyledNotesList = styled.section``
+const StyledNotesList = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+`
