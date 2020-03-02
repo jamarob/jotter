@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Date from './Date'
 
 export default function({ created, text }) {
+  const date = new Date(created)
+  const localeDate = date.toLocaleString()
   return (
     <StyledNote>
-      <Date millis={created} />
+      <StyledDate>{localeDate}</StyledDate>
       {text}
     </StyledNote>
   )
@@ -14,4 +15,10 @@ export default function({ created, text }) {
 const StyledNote = styled.section`
   box-shadow: 2px 2px 2px 2px lightgrey;
   padding: 8px;
+`
+
+const StyledDate = styled.div`
+  color: grey;
+  font-size: 0.9em;
+  padding-bottom: 4px;
 `
