@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Date from './Date'
 
 export default function({ created, text }) {
   return (
     <StyledNote>
-      {created}
-      <br />
+      <Date millis={created} />
       {text}
     </StyledNote>
   )
