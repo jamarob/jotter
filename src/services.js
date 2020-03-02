@@ -1,5 +1,7 @@
 import Notes from './notes.json'
 
 export function getNotes() {
-  return Notes
+  const sortedNotes = [...Notes]
+  sortedNotes.sort((a, b) => b.created - a.created)
+  return sortedNotes
 }
