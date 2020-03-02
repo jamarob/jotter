@@ -1,16 +1,16 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
+  Redirect,
   Route,
   Switch,
-  Redirect,
 } from 'react-router-dom'
-import GlobalStyle from './GlobalStyle'
 import NotesList from './components/NotesList'
-import { getNotes } from './data/services'
+import GlobalStyle from './GlobalStyle'
+import useNotes from './hooks/useNotes'
 
 function App() {
-  const notes = getNotes()
+  const [notes, setNotes] = useNotes()
 
   return (
     <Router>
