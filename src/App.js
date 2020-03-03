@@ -6,25 +6,32 @@ import {
   Switch,
 } from 'react-router-dom'
 import NotesList from './components/NotesList'
-import GlobalStyle from './GlobalStyle'
+import Header from './components/Header'
 import useNotes from './hooks/useNotes'
+import styled from 'styled-components/macro'
 
-function App() {
+export default function App() {
   const [notes, setNotes] = useNotes()
 
   return (
     <Router>
-      <GlobalStyle />
-      <Switch>
-        <Route path="/notes">
-          <NotesList notes={notes} />
-        </Route>
-        <Route path="/">
-          <Redirect to="/notes" />
-        </Route>
-      </Switch>
+      <PageLayout>
+        <Switch>
+          <Route path="/notes">
+            <Header title="All notes" />
+            <NotesList notes={notes} />
+          </Route>
+          <Route path="/">
+            <Redirect to="/notes" />
+          </Route>
+        </Switch>
+      </PageLayout>
     </Router>
   )
 }
 
-export default App
+const PageLayout = styled.div`
+  display: grid;
+  grid-template-rows: 48px auto;
+  height: 100vh;
+`

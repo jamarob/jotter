@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Note from './Note'
 
 export default function NotesList({ notes }) {
@@ -17,6 +17,7 @@ export default function NotesList({ notes }) {
 }
 
 const StyledNotesList = styled.section`
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 24px;
