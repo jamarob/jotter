@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import DateView from './DateView'
+import { replaceTags } from './Tag'
 
-export default function({ created, text }) {
+export default function({ created, text, onTagClick }) {
   return (
     <StyledNote>
       <DateView time={created} />
-      {text}
+      {replaceTags(text, onTagClick)}
     </StyledNote>
   )
 }
