@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Note from './Note'
 
-export default function NotesList({ notes }) {
+export default function NotesList({ notes, onTagClick }) {
   return (
     <StyledNotesList>
       {notes.length ? mapNotes() : <p>You have no notes, yet.</p>}
@@ -11,7 +11,12 @@ export default function NotesList({ notes }) {
 
   function mapNotes() {
     return notes.map(note => (
-      <Note key={note.id} created={note.created} text={note.text} />
+      <Note
+        key={note.id}
+        created={note.created}
+        text={note.text}
+        onTagClick={onTagClick}
+      />
     ))
   }
 }
