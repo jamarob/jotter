@@ -5,21 +5,18 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import NotesList from './components/NotesList'
-import Header from './components/Header'
-import useNotes from './hooks/useNotes'
 import styled from 'styled-components/macro'
+import useNotes from './hooks/useNotes'
+import BrowseNotes from './pages/BrowseNotes'
 
 export default function App() {
-  const [notes, setNotes] = useNotes()
-
+  const { notes, searchNotes } = useNotes()
   return (
     <Router>
       <PageLayout>
         <Switch>
           <Route path="/notes">
-            <Header title="All notes" />
-            <NotesList notes={notes} />
+            <BrowseNotes notes={notes} onTagClick={searchNotes} />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />
