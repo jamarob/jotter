@@ -5,7 +5,7 @@ import Note from './Note'
 export default function NotesList({ notes, onTagClick }) {
   return (
     <StyledNotesList>
-      {notes.length ? mapNotes() : <p>No notes found..</p>}
+      {notes.length ? mapNotes() : <p>No notes found...</p>}
     </StyledNotesList>
   )
 
