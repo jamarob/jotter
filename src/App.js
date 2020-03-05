@@ -10,13 +10,17 @@ import useNotes from './hooks/useNotes'
 import BrowseNotes from './pages/BrowseNotes'
 
 export default function App() {
-  const { notes, searchNotes } = useNotes()
+  const { notes, searchNotes, searchTerm } = useNotes()
   return (
     <Router>
       <PageLayout>
         <Switch>
           <Route path="/notes">
-            <BrowseNotes notes={notes} onTagClick={searchNotes} />
+            <BrowseNotes
+              notes={notes}
+              onSearch={searchNotes}
+              searchTerm={searchTerm}
+            />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />
