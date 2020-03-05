@@ -5,7 +5,7 @@ import Note from './Note'
 export default function NotesList({ notes, onTagClick }) {
   return (
     <StyledNotesList>
-      {notes.length ? mapNotes() : <p>You have no notes, yet.</p>}
+      {notes.length ? mapNotes() : <p>No notes found..</p>}
     </StyledNotesList>
   )
 
@@ -22,7 +22,6 @@ export default function NotesList({ notes, onTagClick }) {
 }
 
 const StyledNotesList = styled.section`
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 24px;
