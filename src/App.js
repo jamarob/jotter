@@ -8,9 +8,10 @@ import {
 import styled from 'styled-components/macro'
 import useNotes from './hooks/useNotes'
 import BrowseNotes from './pages/BrowseNotes'
+import AddNotePage from './pages/AddNotePage'
 
 export default function App() {
-  const { notes, searchNotes, searchTerm } = useNotes()
+  const { notes, searchNotes, searchTerm, addNote } = useNotes()
   return (
     <Router>
       <PageLayout>
@@ -21,6 +22,9 @@ export default function App() {
               onSearch={searchNotes}
               searchTerm={searchTerm}
             />
+          </Route>
+          <Route path="/add">
+            <AddNotePage onAddNote={addNote} />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />
