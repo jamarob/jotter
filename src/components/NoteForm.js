@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export default function NoteForm({ onSave }) {
   const [noteText, setNoteText] = useState('')
@@ -8,6 +8,7 @@ export default function NoteForm({ onSave }) {
   return (
     <StyledNoteForm>
       <textarea
+        placeholder="Enter your note..."
         onChange={event => setNoteText(event.target.value)}
         value={noteText}
       ></textarea>
@@ -44,26 +45,29 @@ const StyledNoteForm = styled.section`
   grid-template-areas:
     'text text'
     'cancel save';
+  gap: 16px;
+  margin: 16px;
 
   textarea {
-    padding: 8px;
     grid-area: text;
+    padding: 8px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgrey;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 
   button {
-    margin: 8px;
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .cancel {
     color: #333;
     border-color: #333;
-    background: whitesmoke;
+    background: white;
   }
 
   .save {
-    color: whitesmoke;
+    color: white;
     border-color: #333;
     background: #333;
   }
