@@ -48,14 +48,12 @@ const StyledNoteForm = styled.section`
   textarea {
     padding: 8px;
     grid-area: text;
-    font-size: 18px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 
   button {
     margin: 8px;
     border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
   }
 
   .cancel {

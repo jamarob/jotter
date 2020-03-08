@@ -6,6 +6,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding:0;
   }
+
+  body {
+    font-size: 18px;
+  }
+
+  input, textarea, button {
+    font-size: 1em;
+  }
 `
 
 export default GlobalStyle
