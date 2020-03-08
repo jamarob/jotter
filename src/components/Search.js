@@ -43,9 +43,22 @@ export default function Search({ searchTerm, onSearch }) {
 const StyledSearch = styled.section`
   display: flex;
   margin: 8px 16px 0 16px;
-  gap: 2px;
+  gap: 4px;
 
   input {
+    color: teal;
     flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding-left: 4px;
+  }
+
+  button {
+    width: 48px;
+    height: 48px;
+    border: 1px solid gray;
+    background: none;
+    border-radius: 4px;
+    font-size: 24px;
   }
 `
