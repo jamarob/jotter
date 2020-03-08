@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 export default function Header({ title }) {
   return (

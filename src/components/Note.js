@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import DateView from './DateView'
 import { replaceTags } from './Tag'
 
-export default function({ created, text, onTagClick }) {
+Note.propTypes = {
+  created: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  onTagClick: PropTypes.func.isRequired,
+}
+
+export default function Note({ created, text, onTagClick }) {
   return (
     <StyledNote>
       <DateView time={created} />

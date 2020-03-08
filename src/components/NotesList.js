@@ -1,6 +1,18 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import Note from './Note'
+
+NotesList.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      created: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ),
+  onTagClick: PropTypes.func.isRequired,
+}
 
 export default function NotesList({ notes, onTagClick }) {
   return (

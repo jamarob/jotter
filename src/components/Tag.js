@@ -1,5 +1,15 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Tag.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
+
+export default function Tag({ text, onClick }) {
+  return <StyledTag onClick={() => onClick(text)}>{text}</StyledTag>
+}
 
 const TAG_REG_EXP = /(@\w+)/
 
@@ -15,10 +25,6 @@ export function replaceTags(text, onTagClick) {
       chunk
     )
   )
-}
-
-export default function Tag({ text, onClick }) {
-  return <StyledTag onClick={() => onClick(text)}>{text}</StyledTag>
 }
 
 const StyledTag = styled.span`
