@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+NoteForm.propTypes = {
+  onSave: PropTypes.func.isRequired,
+}
 
 export default function NoteForm({ onSave }) {
   const [noteText, setNoteText] = useState('')

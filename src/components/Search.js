@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Search.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+}
 
 export default function Search({ searchTerm, onSearch }) {
   const [search, setSearch] = useState('')
