@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getNotes } from '../data/services'
 import uid from 'uid'
 
@@ -8,16 +8,14 @@ export default function useNotes() {
   const [notes, setNotes] = useState(originalNotes)
   const [searchTerm, setSearchTerm] = useState('')
 
-  function searchNotes(string) {
-    setSearchTerm(string)
-    setNotes(originalNotes.filter(note => note.text.includes(string)))
-  }
+  useEffect(() => {
+    setSearchTerm(searchTerm)
+    setNotes(originalNotes.filter(note => note.text.includes(searchTerm)))
+  }, [originalNotes, searchTerm])
 
   function addNote(note) {
-    const newNotes = [{ id: uid(32), ...note }, ...notes]
-    setOriginalNotes(newNotes)
-    setNotes(newNotes)
+    setOriginalNotes([{ id: uid(32), ...note }, ...originalNotes])
   }
 
-  return { notes, searchNotes, searchTerm, addNote }
+  return { notes, searchNotes: setSearchTerm, searchTerm, addNote }
 }
