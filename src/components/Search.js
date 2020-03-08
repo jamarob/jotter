@@ -47,10 +47,5 @@ const StyledSearch = styled.section`
 
   input {
     flex-grow: 1;
-    font-size: 1em;
-  }
-
-  button {
-    font-size: 1em;
   }
 `
