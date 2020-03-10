@@ -9,9 +9,17 @@ import styled from 'styled-components/macro'
 import useNotes from './hooks/useNotes'
 import BrowseNotes from './pages/BrowseNotes'
 import AddNotePage from './pages/AddNotePage'
+import DeleteNotePage from './pages/DeleteNotePage'
 
 export default function App() {
-  const { notes, searchNotes, searchTerm, addNote } = useNotes()
+  const {
+    notes,
+    searchNotes,
+    searchTerm,
+    addNote,
+    findNote,
+    deleteNote,
+  } = useNotes()
   return (
     <Router>
       <PageLayout>
@@ -25,6 +33,9 @@ export default function App() {
           </Route>
           <Route path="/add">
             <AddNotePage onAddNote={addNote} />
+          </Route>
+          <Route path="/delete/:id">
+            <DeleteNotePage findNote={findNote} deleteNote={deleteNote} />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />
