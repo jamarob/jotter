@@ -13,7 +13,7 @@ BrowseNotes.propTypes = {
       created: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
   onSearch: PropTypes.func.isRequired,
   searchTerm: PropTypes.string.isRequired,
 }
