@@ -33,11 +33,7 @@ export default function NoteForm({ onSave }) {
   function handleSave() {
     const text = noteText.trim()
     if (text) {
-      const created = Date.now()
-      onSave({
-        text,
-        created,
-      })
+      onSave(text)
       history.push('/')
     }
   }
