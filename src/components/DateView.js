@@ -17,5 +17,4 @@ function toLocaleString(time) {
 const StyledDate = styled.div`
   color: gray;
   font-size: 14px;
-  padding-bottom: 4px;
 `

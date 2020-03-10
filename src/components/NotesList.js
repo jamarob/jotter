@@ -25,6 +25,7 @@ export default function NotesList({ notes, onTagClick }) {
     return notes.map(note => (
       <Note
         key={note.id}
+        id={note.id}
         created={note.created}
         text={note.text}
         onTagClick={onTagClick}
