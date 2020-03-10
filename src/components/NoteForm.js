@@ -5,10 +5,11 @@ import PropTypes from 'prop-types'
 
 NoteForm.propTypes = {
   onSave: PropTypes.func.isRequired,
+  text: PropTypes.string,
 }
 
-export default function NoteForm({ onSave }) {
-  const [noteText, setNoteText] = useState('')
+export default function NoteForm({ onSave, text }) {
+  const [noteText, setNoteText] = useState(text || '')
   const history = useHistory()
   return (
     <StyledNoteForm>
