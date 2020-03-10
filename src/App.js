@@ -10,6 +10,7 @@ import useNotes from './hooks/useNotes'
 import BrowseNotes from './pages/BrowseNotes'
 import AddNotePage from './pages/AddNotePage'
 import DeleteNotePage from './pages/DeleteNotePage'
+import EditNotePage from './pages/EditNotePage'
 
 export default function App() {
   const {
@@ -19,6 +20,7 @@ export default function App() {
     addNote,
     findNote,
     deleteNote,
+    updateNote,
   } = useNotes()
   return (
     <Router>
@@ -36,6 +38,9 @@ export default function App() {
           </Route>
           <Route path="/delete/:id">
             <DeleteNotePage findNote={findNote} deleteNote={deleteNote} />
+          </Route>
+          <Route path="/edit/:id">
+            <EditNotePage findNote={findNote} updateNote={updateNote} />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />
