@@ -17,5 +17,20 @@ export default function useNotes() {
     setOriginalNotes([{ id: uid(32), ...note }, ...originalNotes])
   }
 
-  return { notes, searchNotes: setSearchTerm, searchTerm, addNote }
+  function findNote(id) {
+    return originalNotes.find(note => note.id === id)
+  }
+
+  function deleteNote(id) {
+    setOriginalNotes(originalNotes.filter(note => note.id !== id))
+  }
+
+  return {
+    notes,
+    searchNotes: setSearchTerm,
+    searchTerm,
+    addNote,
+    findNote,
+    deleteNote,
+  }
 }
