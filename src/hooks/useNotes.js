@@ -3,7 +3,6 @@ import { getNotes } from '../data/services'
 import uid from 'uid'
 
 export default function useNotes() {
-  // eslint-disable-next-line
   const [originalNotes, setOriginalNotes] = useState(getNotes())
   const [notes, setNotes] = useState(originalNotes)
   const [searchTerm, setSearchTerm] = useState('')
