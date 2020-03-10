@@ -25,6 +25,15 @@ export default function useNotes() {
     setOriginalNotes(originalNotes.filter(note => note.id !== id))
   }
 
+  function updateNote(note) {
+    const index = originalNotes.findIndex(n => n.id === note.id)
+    setOriginalNotes([
+      ...originalNotes.slice(0, index),
+      note,
+      ...originalNotes.slice(index + 1),
+    ])
+  }
+
   return {
     notes,
     searchNotes: setSearchTerm,
@@ -32,5 +41,6 @@ export default function useNotes() {
     addNote,
     findNote,
     deleteNote,
+    updateNote,
   }
 }
