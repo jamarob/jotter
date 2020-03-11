@@ -9,15 +9,16 @@ import { Link } from 'react-router-dom'
 Note.propTypes = {
   id: PropTypes.string.isRequired,
   created: PropTypes.number.isRequired,
+  edited: PropTypes.number,
   text: PropTypes.string.isRequired,
   onTagClick: PropTypes.func.isRequired,
 }
 
-export default function Note({ id, created, text, onTagClick }) {
+export default function Note({ id, created, edited, text, onTagClick }) {
   return (
     <StyledNote>
       <NoteHeader>
-        <DateView time={created} />
+        <DateView created={created} edited={edited} />
         <ActionButtons>
           <Link to={'/delete/' + id}>
             <MdDelete />

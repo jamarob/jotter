@@ -27,6 +27,7 @@ export default function NotesList({ notes, onTagClick }) {
         key={note.id}
         id={note.id}
         created={note.created}
+        edited={note.edited}
         text={note.text}
         onTagClick={onTagClick}
       />

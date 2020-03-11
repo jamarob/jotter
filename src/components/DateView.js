@@ -3,11 +3,16 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 DateView.propTypes = {
-  time: PropTypes.number.isRequired,
+  created: PropTypes.number.isRequired,
+  edited: PropTypes.number,
 }
 
-export default function DateView({ time }) {
-  return <StyledDate>{toLocaleString(time)}</StyledDate>
+export default function DateView({ created, edited }) {
+  return (
+    <StyledDate>
+      {toLocaleString(created)} {edited && ' · ' + toLocaleString(edited)}
+    </StyledDate>
+  )
 }
 
 function toLocaleString(time) {
