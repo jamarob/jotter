@@ -17,7 +17,7 @@ export default function DeleteNotePage({ findNote, deleteNote }) {
     <>
       <Header title="Delete Note" />
       <Main>
-        <h2>Are you shure you want to delete this note?</h2>
+        <h2>Are you sure you want to delete this note?</h2>
         <p>{text}</p>
         <ConfirmationButtons>
           <button onClick={handleCancel} className="cancel">
@@ -65,6 +65,7 @@ const ConfirmationButtons = styled.div`
   button {
     flex-grow: 1;
     border-radius: 4px;
+    cursor: pointer;
   }
 
   .cancel {

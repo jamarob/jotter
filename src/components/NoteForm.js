@@ -60,6 +60,7 @@ const StyledNoteForm = styled.section`
 
   button {
     border-radius: 4px;
+    cursor: pointer;
   }
 
   .cancel {
