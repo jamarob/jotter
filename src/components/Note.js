@@ -19,14 +19,14 @@ export default function Note({ id, created, edited, text, onTagClick }) {
     <StyledNote>
       <NoteHeader>
         <DateView created={created} edited={edited} />
-        <ActionButtons>
+        <ActionLinks>
           <Link to={'/delete/' + id}>
             <MdDelete />
           </Link>
           <Link to={'/edit/' + id}>
             <MdModeEdit />
           </Link>
-        </ActionButtons>
+        </ActionLinks>
       </NoteHeader>
       {replaceTags(text, onTagClick)}
     </StyledNote>
@@ -44,7 +44,7 @@ const NoteHeader = styled.div`
   align-items: center;
 `
 
-const ActionButtons = styled.div`
+const ActionLinks = styled.div`
   margin-left: auto;
 
   * {

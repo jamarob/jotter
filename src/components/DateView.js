@@ -10,7 +10,13 @@ DateView.propTypes = {
 export default function DateView({ created, edited }) {
   return (
     <StyledDate>
-      {toLocaleString(created)} {edited && ' · ' + toLocaleString(edited)}
+      {'created: ' + toLocaleString(created)}{' '}
+      {edited && (
+        <>
+          <br />
+          edited: {toLocaleString(edited)}
+        </>
+      )}
     </StyledDate>
   )
 }
