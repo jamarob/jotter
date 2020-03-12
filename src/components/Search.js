@@ -3,12 +3,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { MdSearch, MdBackspace } from 'react-icons/md'
 
-Search.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  onSearch: PropTypes.func.isRequired,
-}
-
-export default function Search({ searchTerm, onSearch }) {
+const Search = React.forwardRef(({ searchTerm, onSearch }, ref) => {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -18,6 +13,7 @@ export default function Search({ searchTerm, onSearch }) {
   return (
     <StyledSearch>
       <input
+        ref={ref}
         type="search"
         value={search}
         onChange={e => setSearch(e.target.value)}
@@ -35,7 +31,14 @@ export default function Search({ searchTerm, onSearch }) {
   function handleSearch() {
     onSearch(search)
   }
+})
+
+Search.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
 }
+
+export default Search
 
 const StyledSearch = styled.section`
   display: flex;
