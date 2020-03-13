@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react'
-import { getNotes } from '../data/services'
+import {
+  loadNotes,
+  saveNotes,
+  loadSearchTerm,
+  saveSearchTerm,
+} from '../data/services'
 import uid from 'uid'
 
 export default function useNotes() {
-  const [originalNotes, setOriginalNotes] = useState(getNotes())
+  const [originalNotes, setOriginalNotes] = useState(loadNotes())
   const [notes, setNotes] = useState(originalNotes)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState(loadSearchTerm())
 
   useEffect(() => {
     setSearchTerm(searchTerm)
@@ -13,7 +18,9 @@ export default function useNotes() {
   }, [originalNotes, searchTerm])
 
   function addNote(note) {
-    setOriginalNotes([{ id: uid(32), ...note }, ...originalNotes])
+    const newNotes = [{ id: uid(32), ...note }, ...originalNotes]
+    setOriginalNotes(newNotes)
+    saveNotes(newNotes)
   }
 
   function findNote(id) {
@@ -21,21 +28,30 @@ export default function useNotes() {
   }
 
   function deleteNote(id) {
-    setOriginalNotes(originalNotes.filter(note => note.id !== id))
+    const newNotes = originalNotes.filter(note => note.id !== id)
+    setOriginalNotes(newNotes)
+    saveNotes(newNotes)
   }
 
   function updateNote(note) {
     const index = originalNotes.findIndex(n => n.id === note.id)
-    setOriginalNotes([
+    const newNotes = [
       ...originalNotes.slice(0, index),
       note,
       ...originalNotes.slice(index + 1),
-    ])
+    ]
+    setOriginalNotes(newNotes)
+    saveNotes(newNotes)
+  }
+
+  function searchNotes(search) {
+    setSearchTerm(search)
+    saveSearchTerm(search)
   }
 
   return {
     notes,
-    searchNotes: setSearchTerm,
+    searchNotes,
     searchTerm,
     addNote,
     findNote,
