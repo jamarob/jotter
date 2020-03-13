@@ -6,6 +6,7 @@ import {
   saveSearchTerm,
 } from '../data/services'
 import uid from 'uid'
+import filterNotes from '../util.js/filterNotes'
 
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState(loadNotes())
@@ -14,7 +15,7 @@ export default function useNotes() {
 
   useEffect(() => {
     setSearchTerm(searchTerm)
-    setNotes(originalNotes.filter(note => note.text.includes(searchTerm)))
+    setNotes(filterNotes(originalNotes, searchTerm))
   }, [originalNotes, searchTerm])
 
   function addNote(note) {
