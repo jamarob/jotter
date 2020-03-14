@@ -6,7 +6,7 @@ import {
   saveSearchTerm,
 } from '../data/services'
 import uid from 'uid'
-import filterNotes from '../util.js/filterNotes'
+import filterNotes from '../util/filterNotes'
 
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState(loadNotes())
