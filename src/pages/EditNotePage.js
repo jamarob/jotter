@@ -14,7 +14,7 @@ export default function EditNotePage({ findNote, updateNote }) {
   const note = findNote(id)
   return (
     <>
-      <Header title="Add Note" />
+      <Header title="Edit Note" />
       <NoteForm onSave={handleSave} text={note.text} />
     </>
   )
