@@ -52,7 +52,15 @@ export default function App() {
 }
 
 const PageLayout = styled.div`
-  display: grid;
-  grid-template-rows: 48px auto;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    flex-shrink: 0;
+  }
+
+  main {
+    flex-grow: 1;
+  }
 `

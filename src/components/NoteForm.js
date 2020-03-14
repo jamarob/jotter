@@ -40,7 +40,7 @@ export default function NoteForm({ onSave, text }) {
   }
 }
 
-const StyledNoteForm = styled.section`
+const StyledNoteForm = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 48px;
