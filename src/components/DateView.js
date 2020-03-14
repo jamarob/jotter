@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { MdCreate, MdAddCircle } from 'react-icons/md'
+import localeDateString from '../util/localeDateString'
 
 DateView.propTypes = {
   created: PropTypes.number.isRequired,
@@ -10,22 +12,26 @@ DateView.propTypes = {
 export default function DateView({ created, edited }) {
   return (
     <StyledDate>
-      {'created: ' + toLocaleString(created)}{' '}
+      <MdAddCircle />
+      {localeDateString(created)}
       {edited && (
         <>
-          <br />
-          edited: {toLocaleString(edited)}
+          <MdCreate />
+          {localeDateString(edited)}
         </>
       )}
     </StyledDate>
   )
 }
 
-function toLocaleString(time) {
-  return new Date(time).toLocaleString()
-}
-
 const StyledDate = styled.div`
   color: gray;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  *:last-child {
+    margin-left: 8px;
+  }
 `
