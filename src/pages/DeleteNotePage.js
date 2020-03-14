@@ -44,7 +44,7 @@ export default function DeleteNotePage({ findNote, deleteNote }) {
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   padding: 16px;
   gap: 16px;
