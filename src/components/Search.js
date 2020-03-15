@@ -3,7 +3,12 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { MdSearch, MdBackspace } from 'react-icons/md'
 
-const Search = React.forwardRef(({ searchTerm, onSearch }, ref) => {
+Search.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+}
+
+export default function Search({ searchTerm, onSearch }) {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -11,15 +16,14 @@ const Search = React.forwardRef(({ searchTerm, onSearch }, ref) => {
   }, [searchTerm])
 
   return (
-    <StyledSearch>
+    <StyledSearch hasInput={search}>
       <input
-        ref={ref}
         type="search"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
       {search && <ClearIcon onClick={handleClear} />}
-      <SearchIcon onClick={handleSearch} />
+      <SearchIcon onClick={() => onSearch(search)} />
     </StyledSearch>
   )
 
@@ -27,29 +31,19 @@ const Search = React.forwardRef(({ searchTerm, onSearch }, ref) => {
     setSearch('')
     onSearch('')
   }
-
-  function handleSearch() {
-    onSearch(search)
-  }
-})
-
-Search.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  onSearch: PropTypes.func.isRequired,
 }
-
-export default Search
 
 const StyledSearch = styled.section`
   display: flex;
-  margin: 8px 16px 0 16px;
+  padding: 8px;
   gap: 4px;
+  box-shadow: 2px 2px 2px 2px lightgray;
 
   input {
     color: teal;
     flex-grow: 1;
     border: none;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid ${props => (props.hasInput ? 'teal' : '#333')};
     padding-left: 4px;
   }
 `
