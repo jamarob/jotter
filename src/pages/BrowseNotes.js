@@ -20,6 +20,7 @@ BrowseNotes.propTypes = {
   lastOperation: PropTypes.string,
   undoLastOperation: PropTypes.func.isRequired,
   dismissUndo: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 }
 
 export default function BrowseNotes({
@@ -29,6 +30,7 @@ export default function BrowseNotes({
   lastOperation,
   undoLastOperation,
   dismissUndo,
+  onDelete,
 }) {
   return (
     <>
@@ -43,7 +45,7 @@ export default function BrowseNotes({
       )}
 
       <Main>
-        <NotesList notes={notes} onTagClick={onSearch} />
+        <NotesList notes={notes} onTagClick={onSearch} onDelete={onDelete} />
       </Main>
       <AddNoteButton />
     </>

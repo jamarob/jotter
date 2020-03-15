@@ -14,7 +14,7 @@ NotesList.propTypes = {
   onTagClick: PropTypes.func.isRequired,
 }
 
-export default function NotesList({ notes, onTagClick }) {
+export default function NotesList({ notes, onTagClick, onDelete }) {
   return (
     <StyledNotesList>
       {notes.length ? mapNotes() : <p>No notes found...</p>}
@@ -30,6 +30,7 @@ export default function NotesList({ notes, onTagClick }) {
         edited={note.edited}
         text={note.text}
         onTagClick={onTagClick}
+        onDelete={onDelete}
       />
     ))
   }
