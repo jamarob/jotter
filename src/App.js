@@ -7,9 +7,8 @@ import {
 } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import useNotes from './hooks/useNotes'
-import BrowseNotes from './pages/BrowseNotes'
 import AddNotePage from './pages/AddNotePage'
-import DeleteNotePage from './pages/DeleteNotePage'
+import BrowseNotes from './pages/BrowseNotes'
 import EditNotePage from './pages/EditNotePage'
 
 export default function App() {
@@ -37,13 +36,11 @@ export default function App() {
               lastOperation={lastOperation}
               undoLastOperation={undoLastOperation}
               dismissUndo={dismissUndo}
+              onDelete={deleteNote}
             />
           </Route>
           <Route path="/add">
             <AddNotePage onAddNote={addNote} />
-          </Route>
-          <Route path="/delete/:id">
-            <DeleteNotePage findNote={findNote} deleteNote={deleteNote} />
           </Route>
           <Route path="/edit/:id">
             <EditNotePage findNote={findNote} updateNote={updateNote} />

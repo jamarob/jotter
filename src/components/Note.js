@@ -12,17 +12,23 @@ Note.propTypes = {
   edited: PropTypes.number,
   text: PropTypes.string.isRequired,
   onTagClick: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 }
 
-export default function Note({ id, created, edited, text, onTagClick }) {
+export default function Note({
+  id,
+  created,
+  edited,
+  text,
+  onTagClick,
+  onDelete,
+}) {
   return (
     <StyledNote>
       <NoteHeader>
         <DateView created={created} edited={edited} />
         <ActionLinks>
-          <Link to={'/delete/' + id}>
-            <MdDelete />
-          </Link>
+          <MdDelete onClick={() => onDelete(id)} />
           <Link to={'/edit/' + id}>
             <MdModeEdit />
           </Link>
