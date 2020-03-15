@@ -16,7 +16,7 @@ export default function DateView({ created, edited }) {
       {localeDateString(created)}
       {edited && (
         <>
-          <MdCreate />
+          <MdCreate className="edited" />
           {localeDateString(edited)}
         </>
       )}
@@ -31,7 +31,7 @@ const StyledDate = styled.div`
   align-items: center;
   gap: 4px;
 
-  *:last-child {
+  .edited {
     margin-left: 8px;
   }
 `
