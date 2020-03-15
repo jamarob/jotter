@@ -21,6 +21,9 @@ export default function App() {
     findNote,
     deleteNote,
     updateNote,
+    lastOperation,
+    undoLastOperation,
+    dismissUndo,
   } = useNotes()
   return (
     <Router>
@@ -31,6 +34,9 @@ export default function App() {
               notes={notes}
               onSearch={searchNotes}
               searchTerm={searchTerm}
+              lastOperation={lastOperation}
+              undoLastOperation={undoLastOperation}
+              dismissUndo={dismissUndo}
             />
           </Route>
           <Route path="/add">
