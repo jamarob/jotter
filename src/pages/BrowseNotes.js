@@ -5,6 +5,7 @@ import AddNoteButton from '../components/AddNoteButton'
 import Header from '../components/Header'
 import NotesList from '../components/NotesList'
 import Search from '../components/Search'
+import UndoMessage from '../components/UndoMessage'
 
 BrowseNotes.propTypes = {
   notes: PropTypes.arrayOf(
@@ -16,13 +17,31 @@ BrowseNotes.propTypes = {
   ).isRequired,
   onSearch: PropTypes.func.isRequired,
   searchTerm: PropTypes.string.isRequired,
+  lastOperation: PropTypes.string,
+  undoLastOperation: PropTypes.func.isRequired,
+  dismissUndo: PropTypes.func.isRequired,
 }
 
-export default function BrowseNotes({ notes, onSearch, searchTerm }) {
+export default function BrowseNotes({
+  notes,
+  onSearch,
+  searchTerm,
+  lastOperation,
+  undoLastOperation,
+  dismissUndo,
+}) {
   return (
     <>
       <Header title="Browse Notes" />
       <Search searchTerm={searchTerm} onSearch={onSearch} />
+      {lastOperation && (
+        <UndoMessage
+          text={lastOperation}
+          onUndo={undoLastOperation}
+          onDismiss={dismissUndo}
+        />
+      )}
+
       <Main>
         <NotesList notes={notes} onTagClick={onSearch} />
       </Main>
