@@ -14,6 +14,7 @@ export default function NoteForm({ onSave, text }) {
   return (
     <StyledNoteForm>
       <textarea
+        autoFocus
         placeholder="Enter your note..."
         onChange={event => setNoteText(event.target.value)}
         value={noteText}
