@@ -36,7 +36,7 @@ export default function Search({ searchTerm, onSearch }) {
 
 const StyledSearch = styled.section`
   display: flex;
-  padding: 8px 16px 16px 16px;
+  padding: 8px 20px 20px 20px;
   gap: 4px;
 
   input {

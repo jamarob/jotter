@@ -34,9 +34,9 @@ const StyledUndoMessage = styled.section`
   background: #333;
   color: whitesmoke;
   width: 100%;
-  top: 100px;
+  top: 48px;
   left: ${props => (props.show ? 0 : '-105%')};
-  box-shadow: 2px 2px 2px 2px lightgray;
+  //box-shadow: 2px 2px 2px 2px lightgray;
   transition: 0.3s left ease-in-out;
 
   button {
