@@ -43,7 +43,7 @@ const StyledNote = styled.section`
   box-shadow: 2px 2px 2px 2px lightgrey;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   padding: 8px;
-  word-break: break-all;
+  word-wrap: break-word;
 `
 
 const NoteHeader = styled.div`
