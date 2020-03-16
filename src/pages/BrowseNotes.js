@@ -64,5 +64,5 @@ const Footer = styled.div`
   position: relative;
   background: #333;
   color: whitesmoke;
-  padding-top: 36px;
+  padding-top: 24px;
 `

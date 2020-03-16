@@ -7,14 +7,12 @@ export default function AddNoteButton() {
 }
 
 const StyledAddNoteButton = styled(Link)`
-  margin: 0;
-  padding: 0;
   position: absolute;
   width: 48px;
   height: 48px;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
+  left: calc(50% + 4px);
+  top: 2px;
+  transform: translate(calc(-50% + 4px), -50%);
   display: flex;
   justify-content: center;
   align-items: center;

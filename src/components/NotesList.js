@@ -40,5 +40,5 @@ const StyledNotesList = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 16px 16px 68px 16px;
+  padding: 24px;
 `

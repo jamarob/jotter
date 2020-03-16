@@ -19,6 +19,7 @@ export default function Search({ searchTerm, onSearch }) {
     <StyledSearch hasInput={search}>
       <input
         type="search"
+        placeholder="Enter search"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
@@ -35,22 +36,26 @@ export default function Search({ searchTerm, onSearch }) {
 
 const StyledSearch = styled.section`
   display: flex;
-  padding: 8px;
+  padding: 8px 16px 16px 16px;
   gap: 4px;
-  box-shadow: 2px 2px 2px 2px lightgray;
 
   input {
+    background: #333;
     color: teal;
     flex-grow: 1;
     border: none;
-    border-bottom: 1px solid ${props => (props.hasInput ? 'teal' : '#333')};
+    border-bottom: 1px solid ${props => (props.hasInput ? 'teal' : 'gray')};
     padding-left: 4px;
   }
 `
 
 const SearchIcon = styled(MdSearch)`
   font-size: 36px;
+  flex-shrink: 0;
+  margin-left: 4px;
 `
 const ClearIcon = styled(MdBackspace)`
   font-size: 36px;
+  flex-shrink: 0;
+  margin-left: 4px;
 `
