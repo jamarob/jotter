@@ -1,15 +1,14 @@
 import React from 'react'
+import { GiBookmark } from 'react-icons/gi'
+import { MdMenu } from 'react-icons/md'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
 
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-}
-
-export default function Header({ title }) {
+export default function Header() {
   return (
     <StyledHeader>
-      <h1>{title}</h1>
+      <Logo />
+      <h1>Jotter</h1>
+      <MenuButton onClick={() => console.log('menu clicked')} />
     </StyledHeader>
   )
 }
@@ -21,4 +20,14 @@ const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   height: 48px;
+`
+const Logo = styled(GiBookmark)`
+  font-size: 32px;
+  margin: 0 20px;
+`
+
+const MenuButton = styled(MdMenu)`
+  font-size: 32px;
+  margin: 0 20px 0 auto;
+  cursor: pointer;
 `

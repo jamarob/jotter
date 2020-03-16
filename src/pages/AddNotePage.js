@@ -10,7 +10,7 @@ AddNotePage.propTypes = {
 export default function AddNotePage({ onAddNote }) {
   return (
     <>
-      <Header title="Add Note" />
+      <Header />
       <NoteForm onSave={handleSave} />
     </>
   )

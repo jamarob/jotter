@@ -34,7 +34,7 @@ export default function BrowseNotes({
 }) {
   return (
     <>
-      <Header title="Browse Notes" />
+      <Header />
       {lastOperation && (
         <UndoMessage
           text={lastOperation}
