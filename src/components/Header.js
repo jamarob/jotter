@@ -14,20 +14,24 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-  background: #333;
-  color: whitesmoke;
+  background: var(--neutral-1);
+  color: var(--neutral-10);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
+  height: var(--size-7);
+
+  h1 {
+    font-size: var(--size-5);
+  }
 `
 const Logo = styled(GiBookmark)`
-  font-size: 32px;
-  margin: 0 20px;
+  font-size: var(--size-6);
+  margin: 0 var(--size-5);
 `
 
 const MenuButton = styled(MdMenu)`
-  font-size: 32px;
-  margin: 0 20px 0 auto;
+  font-size: var(--size-6);
+  margin: 0 var(--size-5) 0 auto;
   cursor: pointer;
 `

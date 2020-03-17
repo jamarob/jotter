@@ -38,24 +38,25 @@ const StyledSearch = styled.section`
   display: flex;
   padding: 8px 20px 20px 20px;
   gap: 4px;
+  color: var(--neutral-8);
 
   input {
-    background: #333;
-    color: teal;
+    background: var(--neutral-1);
+    color: var(--primary-5);
     flex-grow: 1;
     border: none;
-    border-bottom: 1px solid ${props => (props.hasInput ? 'teal' : 'gray')};
-    padding-left: 4px;
+    border-bottom: 2px solid var(--neutral-3);
+    padding-left: var(--size-1);
   }
 `
 
 const SearchIcon = styled(MdSearch)`
-  font-size: 36px;
+  font-size: var(--size-6);
   flex-shrink: 0;
-  margin-left: 4px;
+  margin-left: var(--size-1);
 `
 const ClearIcon = styled(MdBackspace)`
-  font-size: 36px;
+  font-size: var(--size-6);
   flex-shrink: 0;
-  margin-left: 4px;
+  margin-left: var(--size-1);
 `

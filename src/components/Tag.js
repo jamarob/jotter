@@ -28,6 +28,6 @@ export function replaceTags(text, onTagClick) {
 }
 
 const StyledTag = styled.span`
-  color: teal;
+  color: var(--primary-3);
   cursor: pointer;
 `

@@ -8,8 +8,8 @@ export default function AddNoteButton() {
 
 const StyledAddNoteButton = styled(Link)`
   position: absolute;
-  width: 48px;
-  height: 48px;
+  width: var(--size-7);
+  height: var(--size-7);
   left: calc(50% + 4px);
   top: 2px;
   transform: translate(calc(-50% + 4px), -50%);
@@ -18,12 +18,12 @@ const StyledAddNoteButton = styled(Link)`
   align-items: center;
   text-decoration: none;
 
-  border: 2px solid white;
+  border: 2px solid var(--neutral-10);
   border-radius: 50%;
-  background: #333;
-  color: white;
+  background: var(--neutral-1);
+  color: var(--neutral-10);
 
   font-weight: bold;
-  font-size: 36px;
+  font-size: var(--size-7);
   cursor: pointer;
 `

@@ -62,7 +62,7 @@ const Main = styled.main`
 `
 const Footer = styled.div`
   position: relative;
-  background: #333;
-  color: whitesmoke;
-  padding-top: 24px;
+  background: var(--neutral-1);
+  color: var(--neutral-10);
+  padding-top: var(--size-5);
 `

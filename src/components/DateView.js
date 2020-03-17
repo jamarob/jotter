@@ -25,13 +25,13 @@ export default function DateView({ created, edited }) {
 }
 
 const StyledDate = styled.div`
-  color: gray;
-  font-size: 14px;
+  color: var(--neutral-7);
+  font-size: var(--size-4);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--size-1);
 
   .edited {
-    margin-left: 8px;
+    margin-left: var(--size-1);
   }
 `

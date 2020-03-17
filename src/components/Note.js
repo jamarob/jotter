@@ -40,23 +40,25 @@ export default function Note({
 }
 
 const StyledNote = styled.section`
-  box-shadow: 2px 2px 2px 2px lightgrey;
+  box-shadow: 2px 2px 2px 2px var(--neutral-9);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  padding: 8px;
+  padding: var(--size-2);
   word-wrap: break-word;
+  color: var(--neutral-1);
+  background: white;
 `
 
 const NoteHeader = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `
 
 const ActionLinks = styled.div`
   margin-left: auto;
 
   * {
-    margin-left: 8px;
-    color: gray;
-    font-size: 24px;
+    margin-left: var(--size-1);
+    color: var(--neutral-5);
+    font-size: var(--size-5);
   }
 `

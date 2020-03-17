@@ -30,23 +30,22 @@ const StyledUndoMessage = styled.section`
   position: absolute;
   display: flex;
   align-items: center;
-  padding: 8px;
-  background: #333;
-  color: whitesmoke;
+  padding: var(--size-1) calc(var(--size-5) + var(--size-1));
+  background: var(--neutral-1);
+  color: var(--neutral-9);
   width: 100%;
-  top: 48px;
+  top: var(--size-7);
   left: ${props => (props.show ? 0 : '-105%')};
-  //box-shadow: 2px 2px 2px 2px lightgray;
   transition: 0.3s left ease-in-out;
-
+  font-size: var(--size-4);
   button {
-    font-size: 16px;
+    font-size: var(--size-4);
     background: none;
-    color: whitesmoke;
-    border: 1px solid whitesmoke;
+    color: var(--primary-5);
+    border: 1px solid var(--primary-5);
     border-radius: 4px;
     padding: 2px;
-    margin-left: 16px;
+    margin-left: var(--size-4);
     margin-right: auto;
     cursor: pointer;
   }
