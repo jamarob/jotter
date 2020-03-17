@@ -38,6 +38,8 @@ const StyledUndoMessage = styled.section`
   left: ${props => (props.show ? 0 : '-105%')};
   transition: 0.3s left ease-in-out;
   font-size: var(--size-4);
+  font-family: 'Handlee', cursive;
+
   button {
     font-size: var(--size-4);
     background: none;
