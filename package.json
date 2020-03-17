@@ -2,7 +2,7 @@
   "name": "jotter",
   "description": "A note taking app. My capstone project for the neuefische bootcamp",
   "author": "Jan Robert",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "react-app"

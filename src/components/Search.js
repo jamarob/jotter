@@ -19,6 +19,7 @@ export default function Search({ searchTerm, onSearch }) {
     <StyledSearch hasInput={search}>
       <input
         type="search"
+        placeholder="Enter search"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
@@ -35,22 +36,37 @@ export default function Search({ searchTerm, onSearch }) {
 
 const StyledSearch = styled.section`
   display: flex;
-  padding: 8px;
+  padding: 8px 20px 20px 20px;
   gap: 4px;
-  box-shadow: 2px 2px 2px 2px lightgray;
+  color: var(--neutral-8);
 
   input {
-    color: teal;
+    background: var(--neutral-1);
+    color: var(--neutral-10);
     flex-grow: 1;
     border: none;
-    border-bottom: 1px solid ${props => (props.hasInput ? 'teal' : '#333')};
-    padding-left: 4px;
+    border-bottom: 2px solid var(--neutral-3);
+    padding-left: var(--size-1);
   }
 `
 
 const SearchIcon = styled(MdSearch)`
-  font-size: 36px;
+  font-size: var(--size-6);
+  flex-shrink: 0;
+  margin-left: var(--size-1);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `
 const ClearIcon = styled(MdBackspace)`
-  font-size: 36px;
+  font-size: var(--size-6);
+  flex-shrink: 0;
+  margin-left: var(--size-1);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `

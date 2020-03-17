@@ -1,8 +1,8 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import NoteForm from '../components/NoteForm'
-import { useParams } from 'react-router-dom'
 
 EditNotePage.propTypes = {
   findNote: PropTypes.func.isRequired,
@@ -14,7 +14,7 @@ export default function EditNotePage({ findNote, updateNote }) {
   const note = findNote(id)
   return (
     <>
-      <Header title="Edit Note" />
+      <Header symbol="edit" />
       <NoteForm onSave={handleSave} text={note.text} />
     </>
   )

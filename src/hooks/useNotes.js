@@ -35,6 +35,7 @@ export default function useNotes() {
     }
     setOriginalNotes(lastState)
     setLastOperation('')
+    saveNotes(lastState)
   }
 
   function dismissUndo() {

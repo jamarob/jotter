@@ -1,28 +1,38 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
+import { MdAdd } from 'react-icons/md'
 
 export default function AddNoteButton() {
-  return <StyledAddNoteButton to="/add">+</StyledAddNoteButton>
+  return (
+    <StyledAddNoteButton to="/add">
+      <MdAdd />
+    </StyledAddNoteButton>
+  )
 }
 
 const StyledAddNoteButton = styled(Link)`
   position: absolute;
-  width: 48px;
-  height: 48px;
-  bottom: 8px;
-  right: 8px;
+  width: var(--size-7);
+  height: var(--size-7);
+  left: 50%;
+  top: 2px;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 
+  border: 2px solid var(--neutral-10);
   border-radius: 50%;
-  background: #333;
-  opacity: 0.8;
-  color: white;
+  background: var(--neutral-1);
+  color: var(--neutral-10);
 
   font-weight: bold;
-  font-size: 36px;
+  font-size: var(--size-7);
   cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `

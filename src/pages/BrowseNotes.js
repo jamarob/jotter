@@ -34,8 +34,7 @@ export default function BrowseNotes({
 }) {
   return (
     <>
-      <Header title="Browse Notes" />
-      <Search searchTerm={searchTerm} onSearch={onSearch} />
+      <Header />
       {lastOperation && (
         <UndoMessage
           text={lastOperation}
@@ -47,7 +46,10 @@ export default function BrowseNotes({
       <Main>
         <NotesList notes={notes} onTagClick={onSearch} onDelete={onDelete} />
       </Main>
-      <AddNoteButton />
+      <Footer>
+        <AddNoteButton />
+        <Search searchTerm={searchTerm} onSearch={onSearch} />
+      </Footer>
     </>
   )
 }
@@ -57,4 +59,10 @@ const Main = styled.main`
   overflow-y: scroll;
   flex-direction: column;
   align-items: stretch;
+`
+const Footer = styled.div`
+  position: relative;
+  background: var(--neutral-1);
+  color: var(--neutral-10);
+  padding-top: var(--size-5);
 `

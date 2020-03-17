@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import { MdCreate, MdAddCircle } from 'react-icons/md'
+import React from 'react'
+import { MdDateRange } from 'react-icons/md'
+import styled from 'styled-components/macro'
 import localeDateString from '../util/localeDateString'
 
 DateView.propTypes = {
@@ -12,11 +12,11 @@ DateView.propTypes = {
 export default function DateView({ created, edited }) {
   return (
     <StyledDate>
-      <MdAddCircle />
+      <MdDateRange />
       {localeDateString(created)}
       {edited && (
         <>
-          <MdCreate className="edited" />
+          {' · '}
           {localeDateString(edited)}
         </>
       )}
@@ -25,13 +25,13 @@ export default function DateView({ created, edited }) {
 }
 
 const StyledDate = styled.div`
-  color: gray;
-  font-size: 14px;
+  color: var(--neutral-7);
+  font-size: var(--size-4);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--size-1);
 
   .edited {
-    margin-left: 8px;
+    margin-left: var(--size-1);
   }
 `
