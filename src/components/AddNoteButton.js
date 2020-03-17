@@ -26,4 +26,8 @@ const StyledAddNoteButton = styled(Link)`
   font-weight: bold;
   font-size: var(--size-7);
   cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `

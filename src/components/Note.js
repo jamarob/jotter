@@ -61,5 +61,10 @@ const ActionLinks = styled.div`
     margin-left: var(--size-1);
     color: var(--neutral-5);
     font-size: var(--size-5);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-5);
+    }
   }
 `

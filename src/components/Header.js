@@ -34,4 +34,8 @@ const MenuButton = styled(MdMenu)`
   font-size: var(--size-6);
   margin: 0 var(--size-5) 0 auto;
   cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `

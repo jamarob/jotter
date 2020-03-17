@@ -42,7 +42,7 @@ const StyledSearch = styled.section`
 
   input {
     background: var(--neutral-1);
-    color: var(--primary-5);
+    color: var(--neutral-10);
     flex-grow: 1;
     border: none;
     border-bottom: 2px solid var(--neutral-3);
@@ -54,9 +54,19 @@ const SearchIcon = styled(MdSearch)`
   font-size: var(--size-6);
   flex-shrink: 0;
   margin-left: var(--size-1);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `
 const ClearIcon = styled(MdBackspace)`
   font-size: var(--size-6);
   flex-shrink: 0;
   margin-left: var(--size-1);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-5);
+  }
 `
