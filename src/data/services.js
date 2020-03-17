@@ -1,8 +1,11 @@
+import TEST_NOTES from './notes.json'
+
 const NOTES_KEY = 'NOTES'
 const SEARCH_TERM_KEY = 'SEARCH_TERM'
 
 export function loadNotes() {
-  return JSON.parse(localStorage.getItem(NOTES_KEY)) ?? []
+  //  return JSON.parse(localStorage.getItem(NOTES_KEY)) ?? []
+  return JSON.parse(localStorage.getItem(NOTES_KEY)) ?? TEST_NOTES
 }
 
 export function saveNotes(notes) {
