@@ -46,6 +46,7 @@ const StyledNote = styled.section`
   word-wrap: break-word;
   color: var(--neutral-1);
   background: white;
+  text-align: justify;
 `
 
 const NoteHeader = styled.div`
