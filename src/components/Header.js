@@ -1,13 +1,20 @@
 import React from 'react'
 import { GiBookmark } from 'react-icons/gi'
-import { MdMenu } from 'react-icons/md'
+import { MdAddCircle, MdCreate, MdMenu } from 'react-icons/md'
 import styled from 'styled-components/macro'
 
-export default function Header() {
+export default function Header({ symbol }) {
   return (
     <StyledHeader>
-      <Logo />
-      <h1>Jotter</h1>
+      {symbol === 'add' ? (
+        <CreateLogo />
+      ) : symbol === 'edit' ? (
+        <EditLogo />
+      ) : (
+        <AppLogo />
+      )}
+
+      <h1>JOTTER</h1>
       <MenuButton onClick={() => console.log('menu clicked')} />
     </StyledHeader>
   )
@@ -23,11 +30,23 @@ const StyledHeader = styled.header`
 
   h1 {
     font-size: var(--size-5);
+    font-family: 'Handlee', cursive;
   }
 `
-const Logo = styled(GiBookmark)`
-  font-size: var(--size-6);
-  margin: 0 var(--size-5);
+
+const AppLogo = styled(GiBookmark)`
+  font-size: var(--size-5);
+  margin: 0 var(--size-3) 0 var(--size-5);
+`
+
+const CreateLogo = styled(MdAddCircle)`
+  font-size: var(--size-5);
+  margin: 0 var(--size-3) 0 var(--size-5);
+`
+
+const EditLogo = styled(MdCreate)`
+  font-size: var(--size-5);
+  margin: 0 var(--size-3) 0 var(--size-5);
 `
 
 const MenuButton = styled(MdMenu)`
