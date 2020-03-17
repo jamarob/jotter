@@ -1,7 +1,12 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import { GiBookmark } from 'react-icons/gi'
 import { MdAddCircle, MdCreate, MdMenu } from 'react-icons/md'
 import styled from 'styled-components/macro'
+
+Header.propTypes = {
+  symbol: PropTypes.string,
+}
 
 export default function Header({ symbol }) {
   return (

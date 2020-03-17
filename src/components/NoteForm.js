@@ -55,7 +55,7 @@ const StyledNoteForm = styled.main`
     grid-area: text;
     padding: var(--size-2);
     border: none;
-    box-shadow: 2px 2px 2px 2px var(--neutral-9);
+    box-shadow: var(--note-shadow);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     color: var(--neutral-1);
   }

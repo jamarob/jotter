@@ -54,9 +54,9 @@ const StyledUndoMessage = styled.section`
 `
 
 const Dismiss = styled(MdClose)`
-  font-size: 24px;
+  font-size: var(--size-5);
   cursor: pointer;
 `
 const CountDown = styled.div`
-  margin-right: 8px;
+  margin-right: var(--size-2);
 `

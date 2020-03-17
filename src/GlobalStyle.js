@@ -37,6 +37,10 @@ const GlobalStyle = createGlobalStyle`
 
   }
   
+  :root {
+    --note-shadow: 2px 2px 2px 2px var(--neutral-9)
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;

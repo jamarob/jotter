@@ -40,7 +40,7 @@ export default function Note({
 }
 
 const StyledNote = styled.section`
-  box-shadow: 2px 2px 2px 2px var(--neutral-9);
+  box-shadow: var(--note-shadow);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   padding: var(--size-2);
   word-wrap: break-word;
