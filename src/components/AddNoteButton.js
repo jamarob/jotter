@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
+import { MdAdd } from 'react-icons/md'
 
 export default function AddNoteButton() {
-  return <StyledAddNoteButton to="/add">+</StyledAddNoteButton>
+  return (
+    <StyledAddNoteButton to="/add">
+      <MdAdd />
+    </StyledAddNoteButton>
+  )
 }
 
 const StyledAddNoteButton = styled(Link)`
