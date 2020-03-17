@@ -10,9 +10,9 @@ const StyledAddNoteButton = styled(Link)`
   position: absolute;
   width: var(--size-7);
   height: var(--size-7);
-  left: calc(50% + 4px);
+  left: 50%;
   top: 2px;
-  transform: translate(calc(-50% + 4px), -50%);
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
