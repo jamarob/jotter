@@ -47,9 +47,14 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
   }
 
-  body {
+  #root {
+    height: 100%
+  }
+
+  html, body {
+    height: 100%;
     font-size: var(--size-4);
-    background: var(--neutral-10)
+    background: var(--neutral-10);
   }
 
   input, textarea, button {

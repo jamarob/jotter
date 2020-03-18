@@ -39,6 +39,5 @@ export default function NotesList({ notes, onTagClick, onDelete }) {
 const StyledNotesList = styled.section`
   display: flex;
   flex-direction: column;
-  gap: var(--size-6);
   padding: var(--size-5);
 `
