@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import uid from 'uid'
 import { loadNotes, saveNotes } from '../data/services'
 import useSearch from './useSearch'
@@ -13,12 +13,13 @@ export default function useNotes() {
   const [search, setSearch, searchedNotes] = useSearch(originalNotes)
   const [lastOperation, saveState, restoreState] = useUndo(setOriginalNotes)
 
+  useEffect(() => saveNotes(originalNotes), [originalNotes])
+
   function addNote(note) {
+    saveState(CREATE, originalNotes)
     const newNote = { id: uid(32), ...note }
     const newNotes = [newNote, ...originalNotes]
-    saveState(CREATE, originalNotes)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
   function findNote(id) {
@@ -29,19 +30,17 @@ export default function useNotes() {
     saveState(DELETE, originalNotes)
     const newNotes = originalNotes.filter(note => note.id !== id)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
   function updateNote(note) {
+    saveState(UPDATE, originalNotes)
     const index = originalNotes.findIndex(n => n.id === note.id)
     const newNotes = [
       ...originalNotes.slice(0, index),
       { ...note },
       ...originalNotes.slice(index + 1),
     ]
-    saveState(UPDATE, originalNotes)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
   function dismissUndo() {
