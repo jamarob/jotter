@@ -42,6 +42,7 @@ export default function Note({
 const StyledNote = styled.section`
   box-shadow: var(--note-shadow);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0 0 var(--size-5) 0;
   padding: var(--size-2);
   word-wrap: break-word;
   color: var(--neutral-1);
