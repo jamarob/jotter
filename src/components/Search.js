@@ -18,7 +18,7 @@ export default function Search({ searchTerm, onSearch }) {
   return (
     <StyledSearch hasInput={search}>
       <input
-        type="search"
+        type="text"
         placeholder="Enter search"
         value={search}
         onChange={e => setSearch(e.target.value)}
@@ -36,8 +36,7 @@ export default function Search({ searchTerm, onSearch }) {
 
 const StyledSearch = styled.section`
   display: flex;
-  padding: 8px 20px 20px 20px;
-  gap: 4px;
+  padding: var(--size-2) var(--size-5) var(--size-5) var(--size-5);
   color: var(--neutral-8);
 
   input {
@@ -53,7 +52,7 @@ const StyledSearch = styled.section`
 const SearchIcon = styled(MdSearch)`
   font-size: var(--size-6);
   flex-shrink: 0;
-  margin-left: var(--size-1);
+  margin-left: var(--size-2);
   cursor: pointer;
 
   &:hover {
@@ -63,7 +62,7 @@ const SearchIcon = styled(MdSearch)`
 const ClearIcon = styled(MdBackspace)`
   font-size: var(--size-6);
   flex-shrink: 0;
-  margin-left: var(--size-1);
+  margin-left: var(--size-2);
   cursor: pointer;
 
   &:hover {
