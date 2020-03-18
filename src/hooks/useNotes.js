@@ -1,12 +1,7 @@
-import { useState, useEffect } from 'react'
-import {
-  loadNotes,
-  saveNotes,
-  loadSearchTerm,
-  saveSearchTerm,
-} from '../data/services'
+import { useState } from 'react'
 import uid from 'uid'
-import filterNotes from '../util/filterNotes'
+import { loadNotes, saveNotes } from '../data/services'
+import useSearch from './useSearch'
 
 const CREATE = 'Note added.'
 const DELETE = 'Note deleted.'
@@ -14,15 +9,10 @@ const UPDATE = 'Note updated.'
 
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState(loadNotes())
-  const [notes, setNotes] = useState(originalNotes)
-  const [searchTerm, setSearchTerm] = useState(loadSearchTerm())
   const [lastOperation, setLastOperation] = useState('')
   const [lastState, setLastState] = useState(null)
 
-  useEffect(() => {
-    setSearchTerm(searchTerm)
-    setNotes(filterNotes(originalNotes, searchTerm))
-  }, [originalNotes, searchTerm])
+  const [search, setSearch, searchedNotes] = useSearch(originalNotes)
 
   function saveLastState(operation, notes) {
     setLastState(notes)
@@ -73,15 +63,10 @@ export default function useNotes() {
     saveNotes(newNotes)
   }
 
-  function searchNotes(search) {
-    setSearchTerm(search)
-    saveSearchTerm(search)
-  }
-
   return {
-    notes,
-    searchNotes,
-    searchTerm,
+    notes: searchedNotes,
+    searchNotes: setSearch,
+    searchTerm: search,
     addNote,
     findNote,
     deleteNote,
