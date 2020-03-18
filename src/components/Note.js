@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import DateView from './DateView'
+import Timestamp from './Timestamp'
 import { replaceTags } from './Tag'
 import { MdDelete, MdModeEdit } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -26,7 +26,7 @@ export default function Note({
   return (
     <StyledNote>
       <NoteHeader>
-        <DateView created={created} edited={edited} />
+        <Timestamp created={created} edited={edited} />
         <ActionLinks>
           <MdDelete onClick={() => onDelete(id)} />
           <Link to={'/edit/' + id}>

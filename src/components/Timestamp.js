@@ -4,15 +4,15 @@ import { MdDateRange } from 'react-icons/md'
 import styled from 'styled-components/macro'
 import localeDateString from '../util/localeDateString'
 
-DateView.propTypes = {
+Timestamp.propTypes = {
   created: PropTypes.number.isRequired,
   edited: PropTypes.number,
 }
 
-export default function DateView({ created, edited }) {
+export default function Timestamp({ created, edited }) {
   return (
-    <StyledDate>
-      <MdDateRange />
+    <StyledTimestamp>
+      <DateIcon />
       {localeDateString(created)}
       {edited && (
         <>
@@ -20,18 +20,17 @@ export default function DateView({ created, edited }) {
           {localeDateString(edited)}
         </>
       )}
-    </StyledDate>
+    </StyledTimestamp>
   )
 }
 
-const StyledDate = styled.div`
+const StyledTimestamp = styled.div`
   color: var(--neutral-7);
   font-size: var(--size-4);
   display: flex;
   align-items: center;
-  gap: var(--size-1);
+`
 
-  .edited {
-    margin-left: var(--size-1);
-  }
+const DateIcon = styled(MdDateRange)`
+  margin-right: var(--size-1);
 `
