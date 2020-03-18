@@ -13,23 +13,25 @@ export default function AddNoteButton() {
 
 const StyledAddNoteButton = styled(Link)`
   position: absolute;
+  left: 50%;
+  top: 0;
   width: var(--size-7);
   height: var(--size-7);
-  left: 50%;
-  top: 2px;
   transform: translate(-50%, -50%);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
 
   border: 2px solid var(--neutral-10);
   border-radius: 50%;
+
   background: var(--neutral-1);
   color: var(--neutral-10);
 
   font-weight: bold;
   font-size: var(--size-7);
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {

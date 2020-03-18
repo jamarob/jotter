@@ -27,28 +27,29 @@ export default function UndoMessage({ text, onUndo, onDismiss }) {
 }
 
 const StyledUndoMessage = styled.section`
-  position: absolute;
   display: flex;
   align-items: center;
-  padding: var(--size-1) calc(var(--size-5) + var(--size-1));
-  background: var(--neutral-1);
-  color: var(--neutral-9);
   width: 100%;
+
+  position: absolute;
   top: var(--size-7);
   left: ${props => (props.show ? 0 : '-105%')};
   transition: 0.3s left ease-in-out;
+
+  padding: var(--size-1) calc(var(--size-5) + var(--size-1));
+  color: var(--neutral-9);
+  background: var(--neutral-1);
   font-size: var(--size-4);
   font-family: 'Handlee', cursive;
 
   button {
-    font-size: var(--size-4);
-    background: none;
     color: var(--primary-5);
+    background: none;
     border: 1px solid var(--primary-5);
     border-radius: 4px;
     padding: 2px;
-    margin-left: var(--size-4);
-    margin-right: auto;
+    margin: 0 auto 0 var(--size-4);
+    font-size: var(--size-4);
     cursor: pointer;
   }
 `
