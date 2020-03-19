@@ -18,7 +18,6 @@ export default function Header({ symbol }) {
       ) : (
         <AppLogo />
       )}
-
       <h1>JOTTER</h1>
       <MenuButton onClick={() => console.log('menu clicked')} />
     </StyledHeader>
@@ -26,12 +25,13 @@ export default function Header({ symbol }) {
 }
 
 const StyledHeader = styled.header`
-  background: var(--neutral-1);
-  color: var(--neutral-10);
   display: flex;
   justify-content: center;
   align-items: center;
   height: var(--size-7);
+
+  background: var(--neutral-1);
+  color: var(--neutral-10);
 
   h1 {
     font-size: var(--size-5);

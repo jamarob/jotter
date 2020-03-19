@@ -25,10 +25,10 @@ export default function Timestamp({ created, edited }) {
 }
 
 const StyledTimestamp = styled.div`
-  color: var(--neutral-7);
-  font-size: var(--size-4);
   display: flex;
   align-items: center;
+  color: var(--neutral-7);
+  font-size: var(--size-4);
 `
 
 const DateIcon = styled(MdDateRange)`

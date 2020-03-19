@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react'
-import {
-  loadNotes,
-  saveNotes,
-  loadSearchTerm,
-  saveSearchTerm,
-} from '../data/services'
 import uid from 'uid'
-import filterNotes from '../util/filterNotes'
+import { loadNotes, saveNotes } from '../data/services'
+import useSearch from './useSearch'
+import useUndo from './useUndo'
 
 const CREATE = 'Note added.'
 const DELETE = 'Note deleted.'
@@ -14,40 +10,16 @@ const UPDATE = 'Note updated.'
 
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState(loadNotes())
-  const [notes, setNotes] = useState(originalNotes)
-  const [searchTerm, setSearchTerm] = useState(loadSearchTerm())
-  const [lastOperation, setLastOperation] = useState('')
-  const [lastState, setLastState] = useState(null)
+  const [search, setSearch, searchedNotes] = useSearch(originalNotes)
+  const [lastOperation, saveState, restoreState] = useUndo(setOriginalNotes)
 
-  useEffect(() => {
-    setSearchTerm(searchTerm)
-    setNotes(filterNotes(originalNotes, searchTerm))
-  }, [originalNotes, searchTerm])
-
-  function saveLastState(operation, notes) {
-    setLastState(notes)
-    setLastOperation(operation)
-  }
-
-  function undoLastOperation() {
-    if (!lastOperation) {
-      return
-    }
-    setOriginalNotes(lastState)
-    setLastOperation('')
-    saveNotes(lastState)
-  }
-
-  function dismissUndo() {
-    setLastOperation('')
-  }
+  useEffect(() => saveNotes(originalNotes), [originalNotes])
 
   function addNote(note) {
+    saveState(CREATE, originalNotes)
     const newNote = { id: uid(32), ...note }
     const newNotes = [newNote, ...originalNotes]
-    saveLastState(CREATE, originalNotes)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
   function findNote(id) {
@@ -55,39 +27,36 @@ export default function useNotes() {
   }
 
   function deleteNote(id) {
-    saveLastState(DELETE, originalNotes)
+    saveState(DELETE, originalNotes)
     const newNotes = originalNotes.filter(note => note.id !== id)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
   function updateNote(note) {
+    saveState(UPDATE, originalNotes)
     const index = originalNotes.findIndex(n => n.id === note.id)
     const newNotes = [
       ...originalNotes.slice(0, index),
       { ...note },
       ...originalNotes.slice(index + 1),
     ]
-    saveLastState(UPDATE, originalNotes)
     setOriginalNotes(newNotes)
-    saveNotes(newNotes)
   }
 
-  function searchNotes(search) {
-    setSearchTerm(search)
-    saveSearchTerm(search)
+  function dismissUndo() {
+    saveState('', null)
   }
 
   return {
-    notes,
-    searchNotes,
-    searchTerm,
+    notes: searchedNotes,
+    searchNotes: setSearch,
+    searchTerm: search,
     addNote,
     findNote,
     deleteNote,
     updateNote,
     lastOperation,
-    undoLastOperation,
+    undoLastOperation: restoreState,
     dismissUndo,
   }
 }
