@@ -40,9 +40,9 @@ const StyledSearch = styled.section`
   color: var(--neutral-8);
 
   input {
-    background: var(--neutral-1);
-    color: var(--neutral-10);
     flex-grow: 1;
+    color: var(--neutral-10);
+    background: var(--neutral-1);
     border: none;
     border-bottom: 2px solid var(--neutral-3);
     padding-left: var(--size-1);
@@ -50,8 +50,8 @@ const StyledSearch = styled.section`
 `
 
 const SearchIcon = styled(MdSearch)`
-  font-size: var(--size-6);
   flex-shrink: 0;
+  font-size: var(--size-6);
   margin-left: var(--size-2);
   cursor: pointer;
 
@@ -60,8 +60,8 @@ const SearchIcon = styled(MdSearch)`
   }
 `
 const ClearIcon = styled(MdBackspace)`
-  font-size: var(--size-6);
   flex-shrink: 0;
+  font-size: var(--size-6);
   margin-left: var(--size-2);
   cursor: pointer;
 

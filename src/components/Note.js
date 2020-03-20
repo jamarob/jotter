@@ -40,14 +40,17 @@ export default function Note({
 }
 
 const StyledNote = styled.section`
-  box-shadow: var(--note-shadow);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0 0 var(--size-5) 0;
   padding: var(--size-2);
+
+  box-shadow: var(--note-shadow);
+
+  text-align: justify;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   word-wrap: break-word;
+
   color: var(--neutral-1);
   background: white;
-  text-align: justify;
 `
 
 const NoteHeader = styled.div`
@@ -60,9 +63,9 @@ const ActionLinks = styled.div`
 
   * {
     margin-left: var(--size-1);
-    color: var(--neutral-5);
     font-size: var(--size-5);
     cursor: pointer;
+    color: var(--neutral-5);
 
     &:hover {
       color: var(--primary-5);
