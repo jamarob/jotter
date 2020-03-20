@@ -16,10 +16,6 @@ firebase.json
 .firebaserc
 /.firebase
 
-# cypress
-/cypress/integration/examples
-/cypress/fixtures/example.json
-
 # misc
 .DS_Store
 .env.local

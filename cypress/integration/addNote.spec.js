@@ -33,7 +33,7 @@ describe('Add note', () => {
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/notes')
     })
-    cy.get('main section')
+    cy.get('[class^="NotesList"]')
       .contains('This is a test note.')
       .should('exist')
   })

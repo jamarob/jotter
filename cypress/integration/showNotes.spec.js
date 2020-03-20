@@ -1,9 +1,7 @@
 describe('Show notes', () => {
   it('shows no notes when storage is empty', () => {
     cy.visit('/')
-    cy.get('p')
-      .contains('No notes found...')
-      .should('exist')
+    cy.contains('No notes found...').should('exist')
   })
 
   it('shows all the notes in storage', () => {
@@ -15,7 +13,7 @@ describe('Show notes', () => {
       .then(length => {
         cy.visit('/')
         cy.contains('No notes found...').should('not.exist')
-        cy.get(`main section > :nth-child(${length})`).should('exist')
+        cy.get(`[class^="NotesList"] :nth-child(${length})`).should('exist')
       })
   })
 })

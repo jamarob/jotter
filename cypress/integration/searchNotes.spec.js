@@ -38,14 +38,16 @@ describe('Search notes', () => {
 
   it('searches the notes', () => {
     cy.get('input').type("'@tagA '@tagB")
-    cy.get('footer section svg:last-child').click()
+    cy.get('[class^="Search__SearchIcon"]')
+      .first()
+      .click()
     Texts.forEach(text => {
       const index = text.indexOf('@')
-      const chunk = text.substring(0, index)
+      const textUntilTagChar = text.substring(0, index)
       if (text.includes('@tagA') && text.includes('@tagB')) {
-        cy.contains(chunk).should('exist')
+        cy.contains(textUntilTagChar).should('exist')
       } else {
-        cy.contains(chunk).should('not.exist')
+        cy.contains(textUntilTagChar).should('not.exist')
       }
     })
   })
