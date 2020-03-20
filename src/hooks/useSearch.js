@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { loadSearchTerm, saveSearchTerm } from '../data/services'
+import { loadSearchTerm, saveSearchTerm } from '../util/services'
 import filterNotes from '../util/filterNotes'
 
 export default function useSearch(notes) {

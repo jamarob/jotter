@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import uid from 'uid'
-import { loadNotes, saveNotes } from '../data/services'
+import { loadNotes, saveNotes } from '../util/services'
 import useSearch from './useSearch'
 import useUndo from './useUndo'
 

@@ -44,7 +44,11 @@ export default function BrowseNotes({
       )}
 
       <Main>
-        <NotesList notes={notes} onTagClick={onSearch} onDelete={onDelete} />
+        <NotesList
+          notes={notes}
+          onTagClick={tag => onSearch(`'${tag}`)}
+          onDelete={onDelete}
+        />
       </Main>
       <Footer>
         <AddNoteButton />
@@ -60,7 +64,7 @@ const Main = styled.main`
   align-items: stretch;
   overflow-y: scroll;
 `
-const Footer = styled.div`
+const Footer = styled.footer`
   position: relative;
   color: var(--neutral-10);
   background: var(--neutral-1);
