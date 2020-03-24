@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import GlobalStyle from '../GlobalStyle'
+import StoryContainer from './StoryContainer'
 import Tag from '../components/Tag'
 
 export default {
@@ -9,10 +9,7 @@ export default {
 }
 
 export const Default = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Tag text="I AM A TAG" onClick={action('Tag was clicked')} />
-    </div>
-  </>
+  <StoryContainer>
+    <Tag text="@someTag" onClick={action('Tag was clicked')} />
+  </StoryContainer>
 )

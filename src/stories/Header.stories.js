@@ -1,6 +1,6 @@
 import React from 'react'
+import StoryContainer from './StoryContainer'
 import Header from '../components/Header'
-import GlobalStyle from '../GlobalStyle'
 
 export default {
   title: 'Header',
@@ -8,28 +8,19 @@ export default {
 }
 
 export const Default = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Header />
-    </div>
-  </>
+  <StoryContainer>
+    <Header />
+  </StoryContainer>
 )
 
 export const Add = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Header symbol="add" />
-    </div>
-  </>
+  <StoryContainer>
+    <Header symbol="add" />
+  </StoryContainer>
 )
 
 export const Edit = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Header symbol="edit" />
-    </div>
-  </>
+  <StoryContainer>
+    <Header symbol="edit" />
+  </StoryContainer>
 )

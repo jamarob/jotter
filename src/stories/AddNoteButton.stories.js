@@ -1,6 +1,6 @@
 import React from 'react'
+import StoryContainer from './StoryContainer'
 import AddNoteButton from '../components/AddNoteButton'
-import GlobalStyle from '../GlobalStyle'
 
 export default {
   title: 'AddNoteButton',
@@ -8,10 +8,7 @@ export default {
 }
 
 export const Default = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 100, margin: 100, position: 'relative' }}>
-      <AddNoteButton />
-    </div>
-  </>
+  <StoryContainer style={{ marginTop: 50, position: 'relative' }}>
+    <AddNoteButton />
+  </StoryContainer>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import GlobalStyle from '../GlobalStyle'
+import StoryContainer from './StoryContainer'
 import Search from '../components/Search'
 
 export default {
@@ -9,19 +9,13 @@ export default {
 }
 
 export const Empty = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Search searchTerm="" onSearch={action('Search')} />
-    </div>
-  </>
+  <StoryContainer>
+    <Search searchTerm="" onSearch={action('Search')} />
+  </StoryContainer>
 )
 
 export const WithText = () => (
-  <>
-    <GlobalStyle />
-    <div style={{ padding: 24 }}>
-      <Search searchTerm="Foobar" onSearch={action('Search')} />
-    </div>
-  </>
+  <StoryContainer>
+    <Search searchTerm="Foobar" onSearch={action('Search')} />
+  </StoryContainer>
 )
