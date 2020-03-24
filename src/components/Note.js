@@ -55,7 +55,6 @@ const StyledNote = styled.section`
 
 const NoteHeader = styled.div`
   display: flex;
-  align-items: flex-start;
 `
 
 const ActionLinks = styled.div`
