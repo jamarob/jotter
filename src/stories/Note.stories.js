@@ -17,8 +17,8 @@ export const Default = () => (
         created={123456789}
         edited={432645876689}
         text="Lorem ipsum dolor sit amet, @consetetur sadipscing elitr, @sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At @vero eos et accusam et justo duo dolores et ea rebum. Stet clita @kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-        onTagClick={action('Tag click')}
-        onDelete={action('delete')}
+        onTagClick={action('Tag was click')}
+        onDelete={action('Delete tag')}
       />
     </div>
   </>
