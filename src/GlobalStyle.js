@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   :root {
-    --note-shadow: 2px 2px 2px 2px var(--neutral-9)
+    --shadow: 2px 2px 2px 2px var(--neutral-9)
   }
 
   * {

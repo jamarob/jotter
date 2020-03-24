@@ -43,7 +43,7 @@ const StyledNote = styled.section`
   margin: 0 0 var(--size-5) 0;
   padding: var(--size-2);
 
-  box-shadow: var(--note-shadow);
+  box-shadow: var(--shadow);
 
   text-align: justify;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
