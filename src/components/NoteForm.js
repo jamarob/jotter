@@ -55,23 +55,26 @@ const StyledNoteForm = styled.main`
     grid-area: text;
     padding: var(--size-2);
     border: none;
-    box-shadow: var(--note-shadow);
+    box-shadow: var(--shadow);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     color: var(--neutral-1);
   }
 
   button {
-    border-radius: 4px;
     cursor: pointer;
+    box-shadow: var(--shadow);
+    text-transform: uppercase;
+    font-weight: bold;
   }
 
-  .cancel {
+  button.cancel {
     color: var(--neutral-1);
     border-color: var(--neutral-1);
+    background: white;
   }
 
-  .save {
-    color: var(--neutral-10);
+  button.save {
+    color: white;
     border-color: var(--neutral-1);
     background: var(--neutral-1);
   }

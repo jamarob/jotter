@@ -59,9 +59,6 @@ export default function BrowseNotes({
 }
 
 const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
   overflow-y: scroll;
 `
 const Footer = styled.footer`
