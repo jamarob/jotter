@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions'
+import { action as storyAction } from '@storybook/addon-actions'
 import React, { useState } from 'react'
 import UndoMessage from '../components/UndoMessage'
 import StoryContainer from './StoryContainer'
@@ -21,11 +21,11 @@ export const Default = () => {
           text="Last Action"
           onUndo={() => {
             setAction('')
-            action('undo')()
+            storyAction('undo')()
           }}
           onDismiss={() => {
             setAction('')
-            action('dismiss')()
+            storyAction('dismiss')()
           }}
         />
       )}
