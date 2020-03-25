@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   :root {
-    --note-shadow: 2px 2px 2px 2px var(--neutral-9)
+    --shadow: 2px 2px 2px 2px var(--neutral-9)
   }
 
   * {
@@ -47,12 +47,7 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
   }
 
-  #root {
-    height: 100%
-  }
-
   html, body {
-    height: 100%;
     font-size: var(--size-4);
     background: var(--neutral-10);
   }

@@ -6,7 +6,7 @@ import { MdAdd } from 'react-icons/md'
 export default function AddNoteButton() {
   return (
     <StyledAddNoteButton to="/add">
-      <MdAdd />
+      <AddButton />
     </StyledAddNoteButton>
   )
 }
@@ -38,3 +38,5 @@ const StyledAddNoteButton = styled(Link)`
     color: var(--primary-5);
   }
 `
+
+const AddButton = styled(MdAdd)``

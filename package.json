@@ -2,9 +2,10 @@
   "name": "jotter",
   "description": "A note taking app. My capstone project for the neuefische bootcamp",
   "author": "Jan Robert",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
+    "@storybook/addon-knobs": "5.3.17",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.4.1",
     "@testing-library/user-event": "7.2.1",
@@ -24,6 +25,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy --only hosting",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
     "cypress": "cypress open"
   },
   "eslintConfig": {
@@ -42,6 +45,12 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "5.3.17",
+    "@storybook/addon-links": "5.3.17",
+    "@storybook/addons": "5.3.17",
+    "@storybook/preset-create-react-app": "2.0.0",
+    "@storybook/react": "5.3.17",
+    "storybook-react-router": "1.0.8",
     "cypress": "4.2.0"
   }
 }

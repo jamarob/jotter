@@ -14,7 +14,7 @@ export default function Timestamp({ created, edited }) {
     <StyledTimestamp>
       <DateIcon />
       {localeDateString(created)}
-      {edited && (
+      {edited > created && (
         <>
           {' · '}
           {localeDateString(edited)}
