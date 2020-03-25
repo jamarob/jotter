@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ NoteForm.propTypes = {
 
 export default function NoteForm({ onSave, text }) {
   const [noteText, setNoteText] = useState(text || '')
+  useEffect(() => setNoteText(text), [text])
   const history = useHistory()
   return (
     <StyledNoteForm>
