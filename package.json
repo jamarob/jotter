@@ -2,7 +2,7 @@
   "name": "jotter",
   "description": "A note taking app. My capstone project for the neuefische bootcamp",
   "author": "Jan Robert",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
