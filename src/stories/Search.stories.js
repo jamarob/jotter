@@ -1,21 +1,20 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
+import { withKnobs, text } from '@storybook/addon-knobs'
 import StoryContainer from './StoryContainer'
 import Search from '../components/Search'
 
 export default {
   title: 'Search',
   component: Search,
+  decorators: [withKnobs],
 }
 
-export const Empty = () => (
+export const Default = () => (
   <StoryContainer>
-    <Search searchTerm="" onSearch={action('Search')} />
-  </StoryContainer>
-)
-
-export const WithText = () => (
-  <StoryContainer>
-    <Search searchTerm="Foobar" onSearch={action('Search')} />
+    <Search
+      searchTerm={text('Search term', 'Foobar')}
+      onSearch={action('Search')}
+    />
   </StoryContainer>
 )

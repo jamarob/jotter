@@ -1,20 +1,16 @@
+import { date, withKnobs } from '@storybook/addon-knobs'
 import React from 'react'
-import StoryContainer from './StoryContainer'
 import Timestamp from '../components/Timestamp'
+import StoryContainer from './StoryContainer'
 
 export default {
   title: 'Timestamp',
   component: Timestamp,
+  decorators: [withKnobs],
 }
 
-export const Created = () => (
+export const Default = () => (
   <StoryContainer>
-    <Timestamp created={0} />
-  </StoryContainer>
-)
-
-export const Modified = () => (
-  <StoryContainer>
-    <Timestamp created={0} edited={10000000} />
+    <Timestamp created={date('created')} edited={date('edited')} />
   </StoryContainer>
 )
