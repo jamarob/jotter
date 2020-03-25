@@ -10,7 +10,7 @@ NoteForm.propTypes = {
 
 export default function NoteForm({ onSave, text }) {
   const [noteText, setNoteText] = useState(text || '')
-  useEffect(() => setNoteText(text), [text])
+  useEffect(() => setNoteText(text || ''), [text])
   const history = useHistory()
   return (
     <StyledNoteForm>
