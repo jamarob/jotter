@@ -8,6 +8,7 @@ import Search from '../components/Search'
 import UndoMessage from '../components/UndoMessage'
 
 BrowseNotes.propTypes = {
+  status: PropTypes.string.isRequired,
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -27,6 +28,7 @@ BrowseNotes.propTypes = {
 }
 
 export default function BrowseNotes({
+  status,
   notes,
   onSearch,
   searchTerm,
@@ -37,7 +39,7 @@ export default function BrowseNotes({
 }) {
   return (
     <>
-      <Header />
+      <Header status={status} />
       {lastOperation && (
         <UndoMessage
           text={lastOperation}

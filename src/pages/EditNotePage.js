@@ -7,14 +7,15 @@ import NoteForm from '../components/NoteForm'
 EditNotePage.propTypes = {
   findNote: PropTypes.func.isRequired,
   updateNote: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
 }
 
-export default function EditNotePage({ findNote, updateNote }) {
+export default function EditNotePage({ findNote, updateNote, status }) {
   const { id } = useParams()
   const note = findNote(id)
   return (
     <>
-      <Header symbol="edit" />
+      <Header symbol="EDIT" status={status} />
       <NoteForm onSave={handleSave} text={note.text} />
     </>
   )

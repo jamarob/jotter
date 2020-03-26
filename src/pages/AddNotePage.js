@@ -5,12 +5,13 @@ import NoteForm from '../components/NoteForm'
 
 AddNotePage.propTypes = {
   onAddNote: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
 }
 
-export default function AddNotePage({ onAddNote }) {
+export default function AddNotePage({ onAddNote, status }) {
   return (
     <>
-      <Header symbol="add" />
+      <Header symbol="ADD" status={status} />
       <NoteForm onSave={text => onAddNote({ text })} />
     </>
   )
