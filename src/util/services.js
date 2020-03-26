@@ -4,18 +4,25 @@ const SEARCH_TERM_KEY = 'SEARCH_TERM'
 
 const SERVER_URL = 'http://localhost:8080'
 
+export function putNotes(notes) {
+  return axios
+    .put(`${SERVER_URL}/notes`, notes)
+    .then(promiseStatus200)
+    .then(justData)
+}
+
 export function getNotes() {
   return axios
     .get(`${SERVER_URL}/notes`)
     .then(promiseStatus200)
-    .then(response => response.data)
+    .then(justData)
 }
 
 export function postNote(note) {
   return axios
     .post(`${SERVER_URL}/notes`, note)
     .then(promiseStatus200)
-    .then(response => response.data)
+    .then(justData)
 }
 
 export function deleteNote(id) {
@@ -26,7 +33,7 @@ export function putNote(note) {
   return axios
     .put(`${SERVER_URL}/note/${note.id}`, note)
     .then(promiseStatus200)
-    .then(response => response.data)
+    .then(justData)
 }
 
 function promiseStatus200(response) {
@@ -34,6 +41,10 @@ function promiseStatus200(response) {
     response.status === 200 && resolve(response)
     reject(`Response status: ${response.status}`)
   })
+}
+
+function justData(response) {
+  return response.data
 }
 
 export function loadSearchTerm() {
