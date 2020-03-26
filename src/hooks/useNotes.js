@@ -7,6 +7,7 @@ import {
 } from '../util/services'
 import useSearch from './useSearch'
 import useUndo from './useUndo'
+import useCloudStatus from './useCloudStatus'
 
 const CREATE = 'Note added.'
 const DELETE = 'Note deleted.'
@@ -16,32 +17,47 @@ export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState([])
   const [search, setSearch, searchedNotes] = useSearch(originalNotes)
   const [lastOperation, saveState, restoreState] = useUndo(setOriginalNotes)
+  const {
+    status,
+    setDownload,
+    setUpload,
+    setOffline,
+    setOnline,
+  } = useCloudStatus()
 
   useEffect(() => {
+    setDownload()
     getNotes()
       .then(notes => setOriginalNotes(notes))
-      .catch(console.log)
+      .then(setOnline)
+      .catch(setOffline)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function addNote(note) {
+    setUpload()
     postNote(note)
       .then(newNote => {
         saveState(CREATE, originalNotes)
         setOriginalNotes([newNote, ...originalNotes])
       })
-      .catch(console.log)
+      .then(setOnline)
+      .catch(setOffline)
   }
 
   function deleteNote(id) {
+    setUpload()
     deleteNoteService(id)
       .then(response => {
         saveState(DELETE, originalNotes)
         setOriginalNotes(originalNotes.filter(note => note.id !== id))
       })
-      .catch(console.log)
+      .then(setOnline)
+      .catch(setOffline)
   }
 
   function updateNote(note) {
+    setUpload()
     putNote(note)
       .then(updatedNote => {
         saveState(UPDATE, originalNotes)
@@ -53,11 +69,19 @@ export default function useNotes() {
         ]
         setOriginalNotes(newNotes)
       })
-      .catch(console.log)
+      .then(setOnline)
+      .catch(setOffline)
   }
 
   function findNote(id) {
     return originalNotes.find(note => note.id === id)
+  }
+
+  function undoLastOperation() {
+    setDownload()
+    restoreState()
+      .then(setOnline)
+      .catch(setOffline)
   }
 
   function dismissUndo() {
@@ -65,6 +89,7 @@ export default function useNotes() {
   }
 
   return {
+    status,
     notes: searchedNotes,
     searchNotes: setSearch,
     searchTerm: search,
@@ -73,7 +98,7 @@ export default function useNotes() {
     deleteNote,
     updateNote,
     lastOperation,
-    undoLastOperation: restoreState,
+    undoLastOperation,
     dismissUndo,
   }
 }

@@ -14,13 +14,11 @@ export default function useUndo(restore) {
     if (!lastState) {
       return
     }
-    putNotes(lastState)
-      .then(notes => {
-        restore(notes)
-        setLastState(null)
-        setLastOperation('')
-      })
-      .catch(console.log)
+    return putNotes(lastState).then(notes => {
+      restore(notes)
+      setLastState(null)
+      setLastOperation('')
+    })
   }
 
   return [lastOperation, saveState, restoreState]
