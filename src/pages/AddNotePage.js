@@ -11,12 +11,7 @@ export default function AddNotePage({ onAddNote }) {
   return (
     <>
       <Header symbol="add" />
-      <NoteForm onSave={handleSave} />
+      <NoteForm onSave={text => onAddNote({ text })} />
     </>
   )
-
-  function handleSave(text) {
-    const created = Date.now()
-    onAddNote({ text, created })
-  }
 }

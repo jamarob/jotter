@@ -20,6 +20,6 @@ export default function EditNotePage({ findNote, updateNote }) {
   )
 
   function handleSave(text) {
-    text !== note.text && updateNote({ ...note, text, edited: Date.now() })
+    text !== note.text && updateNote({ ...note, text })
   }
 }
