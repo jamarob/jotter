@@ -11,7 +11,10 @@ BrowseNotes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      created: PropTypes.number.isRequired,
+      created: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+      edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
       text: PropTypes.string.isRequired,
     })
   ).isRequired,
