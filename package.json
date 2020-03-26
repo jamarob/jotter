@@ -2,7 +2,7 @@
   "name": "jotter",
   "description": "A note taking app. My capstone project for the neuefische bootcamp",
   "author": "Jan Robert",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@storybook/addon-knobs": "5.3.17",
