@@ -28,7 +28,10 @@
     "deploy": "npm run build && firebase deploy --only hosting",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "cypress": "cypress open"
+    "cypress": "run-p start server:cypress cypress:open",
+    "cypress:open": "cypress open",
+    "server:cypress": "java -jar -Dspring.profiles.active=test backend/jotterbackend.jar",
+    "server:dev": "java -jar -Dspring.profiles.active=dev backend/jotterbackend.jar"
   },
   "eslintConfig": {
     "extends": "react-app"
