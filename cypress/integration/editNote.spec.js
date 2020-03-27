@@ -1,17 +1,21 @@
-describe('Edit note', () => {
-  const originalNote = {
-    id: '123456789',
-    created: Date.now(),
-    text: 'This is a test note.',
-  }
+import { postNote, putNotes } from '../../src/util/services'
 
+describe('Edit note', () => {
+  const originalText = 'This is a test note.'
   const addedText = 'And this is an edit. '
-  const editedText = addedText + originalNote.text
+  const editedText = addedText + originalText
+
+  const editButtonFirstNote = '[class^="Note__ActionLinks"] :nth-child(2)'
+
+  before(() => {
+    cy.wrap(putNotes([]))
+    cy.wrap(postNote({ text: originalText }))
+  })
+  after(() => cy.wrap(putNotes([])))
 
   beforeEach(() => {
-    localStorage.setItem('NOTES', JSON.stringify([originalNote]))
     cy.visit('/')
-    cy.get('a[href="/edit/123456789"]').click()
+    cy.get(editButtonFirstNote).click()
   })
 
   it('does not change the note on cancel', () => {
