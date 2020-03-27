@@ -13,6 +13,7 @@ import EditNotePage from './pages/EditNotePage'
 
 export default function App() {
   const {
+    status,
     notes,
     searchNotes,
     searchTerm,
@@ -30,6 +31,7 @@ export default function App() {
         <Switch>
           <Route path="/notes">
             <BrowseNotes
+              status={status}
               notes={notes}
               onSearch={searchNotes}
               searchTerm={searchTerm}
@@ -40,10 +42,14 @@ export default function App() {
             />
           </Route>
           <Route path="/add">
-            <AddNotePage onAddNote={addNote} />
+            <AddNotePage onAddNote={addNote} status={status} />
           </Route>
           <Route path="/edit/:id">
-            <EditNotePage findNote={findNote} updateNote={updateNote} />
+            <EditNotePage
+              findNote={findNote}
+              updateNote={updateNote}
+              status={status}
+            />
           </Route>
           <Route path="/">
             <Redirect to="/notes" />

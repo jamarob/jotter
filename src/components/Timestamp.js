@@ -5,8 +5,8 @@ import styled from 'styled-components/macro'
 import localeDateString from '../util/localeDateString'
 
 Timestamp.propTypes = {
-  created: PropTypes.number.isRequired,
-  edited: PropTypes.number,
+  created: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 }
 
 export default function Timestamp({ created, edited }) {

@@ -1,25 +1,47 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { GiBookmark } from 'react-icons/gi'
-import { MdAddCircle, MdCreate, MdMenu } from 'react-icons/md'
+import {
+  MdAddCircle,
+  MdCreate,
+  MdCloudDone,
+  MdCloudOff,
+  MdCloudDownload,
+  MdCloudUpload,
+} from 'react-icons/md'
 import styled from 'styled-components/macro'
 
 Header.propTypes = {
-  symbol: PropTypes.string,
+  symbol: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
+  status: PropTypes.oneOf(['ONLINE', 'OFFLINE', 'DOWNLOAD', 'UPLOAD'])
+    .isRequired,
 }
 
-export default function Header({ symbol }) {
+Header.defaultProps = {
+  symbol: 'HOME',
+  status: 'OFFLINE',
+}
+
+export default function Header({ symbol, status }) {
   return (
     <StyledHeader>
-      {symbol === 'add' ? (
+      {symbol === 'ADD' ? (
         <CreateLogo />
-      ) : symbol === 'edit' ? (
+      ) : symbol === 'EDIT' ? (
         <EditLogo />
-      ) : (
+      ) : symbol === 'HOME' ? (
         <AppLogo />
-      )}
+      ) : null}
       <h1>JOTTER</h1>
-      <MenuButton onClick={() => console.log('menu clicked')} />
+      {status === 'ONLINE' ? (
+        <Online />
+      ) : status === 'OFFLINE' ? (
+        <Offline />
+      ) : status === 'DOWNLOAD' ? (
+        <Download />
+      ) : status === 'UPLOAD' ? (
+        <Upload />
+      ) : null}
     </StyledHeader>
   )
 }
@@ -33,6 +55,8 @@ const StyledHeader = styled.header`
   background: var(--neutral-1);
   color: var(--neutral-10);
 
+  font-size: var(--size-5);
+
   h1 {
     font-size: var(--size-5);
     font-family: 'Handlee', cursive;
@@ -40,26 +64,23 @@ const StyledHeader = styled.header`
 `
 
 const AppLogo = styled(GiBookmark)`
-  font-size: var(--size-5);
   margin: 0 var(--size-3) 0 var(--size-5);
 `
-
 const CreateLogo = styled(MdAddCircle)`
-  font-size: var(--size-5);
   margin: 0 var(--size-3) 0 var(--size-5);
 `
-
 const EditLogo = styled(MdCreate)`
-  font-size: var(--size-5);
   margin: 0 var(--size-3) 0 var(--size-5);
 `
-
-const MenuButton = styled(MdMenu)`
-  font-size: var(--size-6);
+const Online = styled(MdCloudDone)`
   margin: 0 var(--size-5) 0 auto;
-  cursor: pointer;
-
-  &:hover {
-    color: var(--primary-5);
-  }
+`
+const Offline = styled(MdCloudOff)`
+  margin: 0 var(--size-5) 0 auto;
+`
+const Download = styled(MdCloudDownload)`
+  margin: 0 var(--size-5) 0 auto;
+`
+const Upload = styled(MdCloudUpload)`
+  margin: 0 var(--size-5) 0 auto;
 `

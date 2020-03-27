@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 
 Note.propTypes = {
   id: PropTypes.string.isRequired,
-  created: PropTypes.number.isRequired,
-  edited: PropTypes.number,
+  created: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   text: PropTypes.string.isRequired,
   onTagClick: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
