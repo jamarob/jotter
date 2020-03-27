@@ -1,4 +1,10 @@
+import { putNotes } from '../../src/util/services'
+
 describe('Add note', () => {
+  before(() => cy.wrap(putNotes([])))
+
+  after(() => cy.wrap(putNotes([])))
+
   beforeEach(() => {
     cy.visit('/')
     cy.get('a[href="/add"]').click()

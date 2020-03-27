@@ -1,3 +1,5 @@
+import { putNotes, postNote } from '../../src/util/services'
+
 describe('Search notes', () => {
   const Texts = [
     'Notiz1 @tagA',
@@ -12,13 +14,15 @@ describe('Search notes', () => {
     'Notiz10 @tagA',
   ]
 
-  beforeEach(() => {
+  before(() => {
+    cy.wrap(putNotes([]))
     Texts.forEach(text => {
-      cy.visit('/add')
-      cy.get('textarea').type(text)
-      cy.get('button.save').click()
+      cy.wrap(postNote({ text }))
     })
   })
+  after(() => cy.wrap(putNotes([])))
+
+  beforeEach(() => cy.visit('/'))
 
   it('searches for clicked tags', () => {
     cy.contains('@tagA')

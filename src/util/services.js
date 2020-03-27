@@ -44,7 +44,7 @@ function promiseStatus200(response) {
 }
 
 export function loadSearchTerm() {
-  return localStorage.getItem(SEARCH_TERM_KEY) ?? ''
+  return localStorage.getItem(SEARCH_TERM_KEY) || ''
 }
 
 export function saveSearchTerm(searchTerm) {
