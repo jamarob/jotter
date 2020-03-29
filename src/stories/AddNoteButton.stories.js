@@ -3,7 +3,7 @@ import StoryContainer from './StoryContainer'
 import AddNoteButton from '../components/AddNoteButton'
 
 export default {
-  title: 'AddNoteButton',
+  title: 'Buttons/AddNoteButton',
   component: AddNoteButton,
 }
 

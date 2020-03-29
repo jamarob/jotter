@@ -14,6 +14,8 @@ const StyledButton = styled.button`
   font-weight: bold;
   font-family: Handlee;
 
+  height: 48px;
+
   color: ${props => (props.primary ? 'var(--neutral-10)' : 'var(--neutral-1)')};
   background: ${props =>
     props.primary ? 'var(--neutral-1)' : 'var(--neutral-10)'};
