@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import Tip from './Tip'
+import Button from './Button'
 
 NoteForm.propTypes = {
   onSave: PropTypes.func.isRequired,
@@ -14,18 +16,19 @@ export default function NoteForm({ onSave, text }) {
   const history = useHistory()
   return (
     <StyledNoteForm>
+      <StyledTip>
+        Prefix a word with <Tagchar>@</Tagchar> to turn it into a tag!
+      </StyledTip>
       <textarea
         autoFocus
         placeholder="Enter your note..."
         onChange={event => setNoteText(event.target.value)}
         value={noteText}
       ></textarea>
-      <button className="cancel" onClick={handleCancel}>
-        Cancel
-      </button>
-      <button className="save" onClick={handleSave}>
-        Save
-      </button>
+      <Button onClick={handleCancel}>cancel</Button>
+      <Button primary onClick={handleSave}>
+        save
+      </Button>
     </StyledNoteForm>
   )
 
@@ -45,38 +48,28 @@ export default function NoteForm({ onSave, text }) {
 const StyledNoteForm = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto var(--size-7);
+  grid-template-rows: min-content auto var(--size-7);
   grid-template-areas:
-    'text text'
+    'tip tip'
+    'textarea textarea'
     'cancel save';
   gap: var(--size-4);
   margin: var(--size-5);
 
   textarea {
-    grid-area: text;
+    grid-area: textarea;
     padding: var(--size-2);
     border: none;
     box-shadow: var(--shadow);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     color: var(--neutral-1);
   }
+`
+const StyledTip = styled(Tip)`
+  grid-area: tip;
+`
 
-  button {
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  button.cancel {
-    color: var(--neutral-1);
-    border-color: var(--neutral-1);
-    background: white;
-  }
-
-  button.save {
-    color: white;
-    border-color: var(--neutral-1);
-    background: var(--neutral-1);
-  }
+const Tagchar = styled.span`
+  color: var(--primary-3);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 `
