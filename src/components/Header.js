@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types'
 import styled from 'styled-components/macro'
 import PageLogo from './PageLogo'
 import ConnectionStatus from './ConnectionStatus'
+import PageHeading from './PageHeading'
 
 Header.propTypes = {
   page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
@@ -18,7 +19,7 @@ export default function Header({ page, status }) {
   return (
     <StyledHeader>
       <StyledPageLogo page={page} />
-      <h1>JOTTER</h1>
+      <PageHeading page={page} />
       <StyledConnectionStatus status={status} />
     </StyledHeader>
   )
