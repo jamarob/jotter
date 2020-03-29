@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function useCloudStatus() {
+export default function useConnectionStatus() {
   const [status, setStatus] = useState('ONLINE')
 
   function setUpload() {

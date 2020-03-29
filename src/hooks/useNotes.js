@@ -7,7 +7,7 @@ import {
 } from '../util/services'
 import useSearch from './useSearch'
 import useUndo from './useUndo'
-import useCloudStatus from './useCloudStatus'
+import useConnectionStatus from './useConnectionStatus'
 
 const CREATE = 'Note added.'
 const DELETE = 'Note deleted.'
@@ -23,7 +23,7 @@ export default function useNotes() {
     setUpload,
     setOffline,
     setOnline,
-  } = useCloudStatus()
+  } = useConnectionStatus()
 
   useEffect(() => {
     setDownload()
