@@ -11,7 +11,7 @@ AddNotePage.propTypes = {
 export default function AddNotePage({ onAddNote, status }) {
   return (
     <>
-      <Header symbol="ADD" status={status} />
+      <Header page="ADD" status={status} />
       <NoteForm onSave={text => onAddNote({ text })} />
     </>
   )
