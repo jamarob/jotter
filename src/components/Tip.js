@@ -13,7 +13,6 @@ export default function Tip(props) {
 const StyledTip = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
 `
 
 const TipText = styled.p`
