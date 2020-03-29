@@ -20,7 +20,9 @@ describe('Edit note', () => {
 
   it('does not change the note on cancel', () => {
     cy.get('textarea').type(addedText)
-    cy.get('button.cancel').click()
+    cy.get('button')
+      .contains('cancel')
+      .click()
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/notes')
     })
@@ -29,7 +31,9 @@ describe('Edit note', () => {
 
   it('does change the note on save', () => {
     cy.get('textarea').type(addedText)
-    cy.get('button.save').click()
+    cy.get('button')
+      .contains('save')
+      .click()
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/notes')
     })

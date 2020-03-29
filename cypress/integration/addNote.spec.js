@@ -20,14 +20,18 @@ describe('Add note', () => {
   })
 
   it('goes to /notes and does not add a note on cancel', () => {
-    cy.get('button.cancel').click()
+    cy.get('button')
+      .contains('cancel')
+      .click()
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/notes')
     })
   })
 
   it('does not leave the page on save with no input', () => {
-    cy.get('button.save').click()
+    cy.get('button')
+      .contains('save')
+      .click()
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/add')
     })
@@ -35,7 +39,9 @@ describe('Add note', () => {
 
   it('saves an entered note and displays it', () => {
     cy.get('textarea').type('This is a test note.')
-    cy.get('button.save').click()
+    cy.get('button')
+      .contains('save')
+      .click()
     cy.location().should(loc => {
       expect(loc.pathname).to.equal('/notes')
     })
