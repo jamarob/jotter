@@ -41,12 +41,14 @@ const StyledUndoMessage = styled.section`
   background: var(--neutral-1);
   font-size: var(--size-4);
   font-family: 'Handlee', cursive;
+  text-transform: uppercase;
 
   button {
+    font-family: inherit;
+    text-decoration: underline;
     color: var(--primary-5);
     background: none;
-    border: 1px solid var(--primary-5);
-    border-radius: 4px;
+    border: none;
     padding: 2px;
     margin: 0 auto 0 var(--size-4);
     font-size: var(--size-4);
