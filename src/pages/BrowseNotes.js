@@ -39,7 +39,7 @@ export default function BrowseNotes({
 }) {
   return (
     <>
-      <Header status={status} />
+      <Header page="HOME" status={status} />
       {lastOperation && (
         <UndoMessage
           text={lastOperation}

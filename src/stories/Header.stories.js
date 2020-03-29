@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 }
 
-const symbolOptions = {
+const pageOptions = {
   Home: 'HOME',
   Add: 'ADD',
   Edit: 'EDIT',
@@ -22,12 +22,12 @@ const statusOptions = {
   Upload: 'UPLOAD',
 }
 
-const groupId = 'Symbol-Status-Group'
+const groupId = 'Page-Status-Group'
 
 export const Default = () => (
   <StoryContainer>
     <Header
-      symbol={select('Symbol', symbolOptions, 'HOME', groupId)}
+      page={select('Page', pageOptions, 'HOME', groupId)}
       status={select('Status', statusOptions, 'ONLINE', groupId)}
     />
   </StoryContainer>

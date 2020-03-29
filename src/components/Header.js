@@ -1,47 +1,25 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { GiBookmark } from 'react-icons/gi'
-import {
-  MdAddCircle,
-  MdCreate,
-  MdCloudDone,
-  MdCloudOff,
-  MdCloudDownload,
-  MdCloudUpload,
-} from 'react-icons/md'
 import styled from 'styled-components/macro'
+import PageLogo from './PageLogo'
+import ConnectionStatus from './ConnectionStatus'
 
 Header.propTypes = {
-  symbol: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
+  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
   status: PropTypes.oneOf(['ONLINE', 'OFFLINE', 'DOWNLOAD', 'UPLOAD'])
     .isRequired,
 }
 
 Header.defaultProps = {
-  symbol: 'HOME',
-  status: 'OFFLINE',
+  page: 'HOME',
 }
 
-export default function Header({ symbol, status }) {
+export default function Header({ page, status }) {
   return (
     <StyledHeader>
-      {symbol === 'ADD' ? (
-        <CreateLogo />
-      ) : symbol === 'EDIT' ? (
-        <EditLogo />
-      ) : symbol === 'HOME' ? (
-        <AppLogo />
-      ) : null}
+      <StyledPageLogo page={page} />
       <h1>JOTTER</h1>
-      {status === 'ONLINE' ? (
-        <Online />
-      ) : status === 'OFFLINE' ? (
-        <Offline />
-      ) : status === 'DOWNLOAD' ? (
-        <Download />
-      ) : status === 'UPLOAD' ? (
-        <Upload />
-      ) : null}
+      <StyledConnectionStatus status={status} />
     </StyledHeader>
   )
 }
@@ -59,28 +37,14 @@ const StyledHeader = styled.header`
 
   h1 {
     font-size: var(--size-5);
-    font-family: 'Handlee', cursive;
+    font-family: Handlee;
+    margin-right: auto;
   }
 `
 
-const AppLogo = styled(GiBookmark)`
+const StyledPageLogo = styled(PageLogo)`
   margin: 0 var(--size-3) 0 var(--size-5);
 `
-const CreateLogo = styled(MdAddCircle)`
-  margin: 0 var(--size-3) 0 var(--size-5);
-`
-const EditLogo = styled(MdCreate)`
-  margin: 0 var(--size-3) 0 var(--size-5);
-`
-const Online = styled(MdCloudDone)`
-  margin: 0 var(--size-5) 0 auto;
-`
-const Offline = styled(MdCloudOff)`
-  margin: 0 var(--size-5) 0 auto;
-`
-const Download = styled(MdCloudDownload)`
-  margin: 0 var(--size-5) 0 auto;
-`
-const Upload = styled(MdCloudUpload)`
-  margin: 0 var(--size-5) 0 auto;
+const StyledConnectionStatus = styled(ConnectionStatus)`
+  margin: 0 var(--size-5) 0 0;
 `
