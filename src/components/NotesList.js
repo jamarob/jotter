@@ -7,10 +7,8 @@ NotesList.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      created: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
+      created: PropTypes.string.isRequired,
+      edited: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
     }).isRequired
   ),
@@ -36,6 +34,7 @@ export default function NotesList({ notes, onTagClick, onDelete }) {
   }
 }
 
-const StyledNotesList = styled.section`
+const StyledNotesList = styled.main`
   padding: var(--size-5);
+  overflow-y: scroll;
 `

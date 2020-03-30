@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components/macro'
-import AddNoteButton from '../components/AddNoteButton'
 import Header from '../components/Header'
 import NotesList from '../components/NotesList'
-import Search from '../components/Search'
 import UndoMessage from '../components/UndoMessage'
 
 BrowseNotes.propTypes = {
@@ -12,10 +9,8 @@ BrowseNotes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      created: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
+      created: PropTypes.string.isRequired,
+      edited: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
     })
   ).isRequired,
@@ -47,28 +42,11 @@ export default function BrowseNotes({
           onDismiss={dismissUndo}
         />
       )}
-
-      <Main>
-        <NotesList
-          notes={notes}
-          onTagClick={tag => onSearch(`'${tag}`)}
-          onDelete={onDelete}
-        />
-      </Main>
-      <Footer>
-        <AddNoteButton />
-        <Search searchTerm={searchTerm} onSearch={onSearch} />
-      </Footer>
+      <NotesList
+        notes={notes}
+        onTagClick={tag => onSearch(`'${tag}`)}
+        onDelete={onDelete}
+      />
     </>
   )
 }
-
-const Main = styled.main`
-  overflow-y: scroll;
-`
-const Footer = styled.footer`
-  position: relative;
-  color: var(--neutral-10);
-  background: var(--neutral-1);
-  padding-top: var(--size-5);
-`
