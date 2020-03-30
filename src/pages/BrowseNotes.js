@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../components/Header'
 import NotesList from '../components/NotesList'
 import UndoMessage from '../components/UndoMessage'
+import Search from '../components/Search'
 
 BrowseNotes.propTypes = {
   status: PropTypes.string.isRequired,
@@ -47,6 +48,7 @@ export default function BrowseNotes({
         onTagClick={tag => onSearch(`'${tag}`)}
         onDelete={onDelete}
       />
+      <Search searchTerm={searchTerm} onSearch={onSearch} notes={notes} />
     </>
   )
 }
