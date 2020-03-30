@@ -23,14 +23,17 @@ describe('Undo operation', () => {
   })
 
   it('undoes the delete', () => {
-    cy.get('button[title="close"]')
+    cy.get('button')
+      .contains('UNDO')
       .first()
       .click()
     cy.contains(note.text).should('exist')
   })
 
   it('dismisses the undo dialog', () => {
-    cy.get('header ~ section svg').click()
+    cy.get('button[title="close"]')
+      .first()
+      .click()
     cy.contains('Note deleted').should('not.exist')
   })
 })
