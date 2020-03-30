@@ -45,7 +45,7 @@ describe('Search notes', () => {
 
   it('searches the notes', () => {
     cy.get('input').type("'@tagA '@tagB")
-    cy.get('[class^="Search__SearchIcon"]')
+    cy.get('button[title="search"]')
       .first()
       .click()
     Texts.forEach(text => {
@@ -57,5 +57,20 @@ describe('Search notes', () => {
         cy.contains(textUntilTagChar).should('not.exist')
       }
     })
+  })
+
+  it('show the clear button on input', () => {
+    cy.get('input').type('foobar')
+    cy.get('button[title="clear"]')
+      .first()
+      .should('exist')
+  })
+
+  it('clears the search', () => {
+    cy.get('input').type('foobar')
+    cy.get('button[title="clear"]')
+      .first()
+      .click()
+    cy.get('input[value="foobar"]').should('not.exist')
   })
 })

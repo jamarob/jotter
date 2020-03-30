@@ -3,11 +3,11 @@ import StoryContainer from './StoryContainer'
 import AddNoteButton from '../components/AddNoteButton'
 
 export default {
-  title: 'Buttons/AddNoteButton',
+  title: 'Buttons',
   component: AddNoteButton,
 }
 
-export const Default = () => (
+export const AddNote = () => (
   <StoryContainer style={{ marginTop: 50, position: 'relative' }}>
     <AddNoteButton />
   </StoryContainer>

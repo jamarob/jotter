@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { MdClose } from 'react-icons/md'
 import styled from 'styled-components'
+import IconButton from './IconButton'
 import useUndoMessage from '../hooks/useUndoMessage'
 
 UndoMessage.propTypes = {
@@ -19,9 +19,9 @@ export default function UndoMessage({ text, onUndo, onDismiss }) {
 
   return (
     <StyledUndoMessage show={show} ref={ref}>
-      {text} <button onClick={handleUndo}>UNDO</button>
+      {text} <UndoButton onClick={handleUndo}>UNDO</UndoButton>
       <CountDown>({remaining})</CountDown>
-      <Dismiss onClick={handleDismiss} />
+      <StyledCloseButton title="close" size="5" onClick={handleDismiss} />
     </StyledUndoMessage>
   )
 }
@@ -42,23 +42,21 @@ const StyledUndoMessage = styled.section`
   font-size: var(--size-4);
   font-family: 'Handlee', cursive;
   text-transform: uppercase;
-
-  button {
-    font-family: inherit;
-    text-decoration: underline;
-    color: var(--primary-5);
-    background: none;
-    border: none;
-    padding: 2px;
-    margin: 0 auto 0 var(--size-4);
-    font-size: var(--size-4);
-    cursor: pointer;
-  }
+`
+const UndoButton = styled.button`
+  font-family: inherit;
+  text-decoration: underline;
+  color: var(--primary-5);
+  background: none;
+  border: none;
+  padding: 2px;
+  margin: 0 auto 0 var(--size-4);
+  font-size: var(--size-4);
+  cursor: pointer;
 `
 
-const Dismiss = styled(MdClose)`
-  font-size: var(--size-5);
-  cursor: pointer;
+const StyledCloseButton = styled(IconButton)`
+  color: var(--neutral-9);
 `
 const CountDown = styled.div`
   margin-right: var(--size-2);

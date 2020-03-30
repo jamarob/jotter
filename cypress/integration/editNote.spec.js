@@ -11,12 +11,12 @@ describe('Edit note', () => {
   const addedText = 'And this is an edit. '
   const editedText = addedText + note.text
 
-  const editButtonFirstNote = '[class^="Note__ActionLinks"] :nth-child(2)'
-
   beforeEach(() => {
     putNotes([note]).catch(() => saveNotesToLocal([note]))
     cy.visit('/')
-    cy.get(editButtonFirstNote).click()
+    cy.get('button[title="edit"]')
+      .first()
+      .click()
   })
   afterEach(() => putNotes([]).catch(() => null))
 
