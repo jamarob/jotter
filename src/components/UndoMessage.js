@@ -12,7 +12,7 @@ UndoMessage.propTypes = {
 
 export default function UndoMessage({ text, onUndo, onDismiss }) {
   const { remaining, show, ref, handleUndo, handleDismiss } = useUndoMessage({
-    start: 5,
+    start: 3,
     onUndo,
     onDismiss,
   })
