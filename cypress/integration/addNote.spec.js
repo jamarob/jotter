@@ -1,9 +1,9 @@
 import { putNotes } from '../../src/util/services'
 
 describe('Add note', () => {
-  before(() => cy.wrap(putNotes([])))
+  before(() => putNotes([]).catch(() => null))
 
-  after(() => cy.wrap(putNotes([])))
+  after(() => putNotes([]).catch(() => null))
 
   beforeEach(() => {
     cy.visit('/')

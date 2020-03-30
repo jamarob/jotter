@@ -1,4 +1,4 @@
-import { putNotes } from '../../src/util/services'
+import { putNotes, saveNotesToLocal } from '../../src/util/services'
 
 describe('Delete note', () => {
   const note = {
@@ -11,10 +11,10 @@ describe('Delete note', () => {
   const deleteButtonFirstNote = '[class^="Note__ActionLinks"] :first-child'
 
   before(() => {
-    cy.wrap(putNotes([note]))
+    putNotes([note]).catch(() => saveNotesToLocal([note]))
     cy.visit('/')
   })
-  after(() => cy.wrap(putNotes([])))
+  after(() => putNotes([]).catch(() => null))
 
   it('has the test note', () => {
     cy.contains(note.text).should('exist')

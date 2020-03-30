@@ -22,15 +22,17 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:headless": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy --only hosting",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "cypress": "run-p start server:cypress cypress:open",
-    "cypress:open": "cypress open",
-    "server:cypress": "java -jar -Dspring.profiles.active=test backend/jotterbackend.jar",
+    "cypress": "cypress open",
+    "cypress:local": "run-p start:headless cypress",
+    "cypress:server": "run-p start:headless server:test cypress",
+    "server:test": "java -jar -Dspring.profiles.active=test backend/jotterbackend.jar",
     "server:dev": "java -jar -Dspring.profiles.active=dev backend/jotterbackend.jar"
   },
   "eslintConfig": {

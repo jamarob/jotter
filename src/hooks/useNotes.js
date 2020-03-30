@@ -4,10 +4,16 @@ import {
   getNotes,
   deleteNote as deleteNoteService,
   putNote,
+  loadNotesFromLocal,
+  saveNotesToLocal,
+  putNotes,
+  setNeedsSync,
+  sync,
 } from '../util/services'
 import useSearch from './useSearch'
 import useUndo from './useUndo'
 import useConnectionStatus from './useConnectionStatus'
+import uid from 'uid'
 
 const CREATE = 'Note added.'
 const DELETE = 'Note deleted.'
@@ -16,7 +22,7 @@ const UPDATE = 'Note updated.'
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState([])
   const [search, setSearch, searchedNotes] = useSearch(originalNotes)
-  const [lastOperation, saveState, restoreState] = useUndo(setOriginalNotes)
+  const [lastOperation, lastState, saveState, dismissUndo] = useUndo()
   const {
     status,
     setDownload,
@@ -27,40 +33,76 @@ export default function useNotes() {
 
   useEffect(() => {
     setDownload()
-    getNotes()
-      .then(notes => setOriginalNotes(notes))
-      .then(setOnline)
-      .catch(setOffline)
+    sync()
+      .then(() => getNotes())
+      .then(notes => {
+        setOnline()
+        setOriginalNotes(notes)
+        saveNotesToLocal(notes)
+      })
+      .catch(() => {
+        setOffline()
+        setOriginalNotes(loadNotesFromLocal())
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function addNote(note) {
+    saveState(CREATE, originalNotes)
     setUpload()
-    postNote(note)
+    sync()
+      .then(() => postNote(note))
       .then(newNote => {
-        saveState(CREATE, originalNotes)
-        setOriginalNotes([newNote, ...originalNotes])
+        setOnline()
+        return [newNote, ...originalNotes]
       })
-      .then(setOnline)
-      .catch(setOffline)
+      .catch(() => {
+        setOffline()
+        setNeedsSync(true)
+        const now = new Date().toISOString()
+        const newNote = { ...note, id: uid(32), created: now, edited: now }
+        return [newNote, ...originalNotes]
+      })
+      .then(notes => {
+        setOriginalNotes(notes)
+        saveNotesToLocal(notes)
+      })
   }
 
   function deleteNote(id) {
+    saveState(DELETE, originalNotes)
     setUpload()
-    deleteNoteService(id)
-      .then(response => {
-        saveState(DELETE, originalNotes)
-        setOriginalNotes(originalNotes.filter(note => note.id !== id))
+    sync()
+      .then(() => deleteNoteService(id))
+      .then(() => {
+        setOnline()
       })
-      .then(setOnline)
-      .catch(setOffline)
+      .catch(() => {
+        setOffline()
+        setNeedsSync(true)
+      })
+      .then(() => {
+        const notes = originalNotes.filter(note => note.id !== id)
+        setOriginalNotes(notes)
+        saveNotesToLocal(notes)
+      })
   }
 
   function updateNote(note) {
+    saveState(UPDATE, originalNotes)
     setUpload()
-    putNote(note)
+    sync()
+      .then(() => putNote(note))
       .then(updatedNote => {
-        saveState(UPDATE, originalNotes)
+        setOnline()
+        return updatedNote
+      })
+      .catch(() => {
+        setOffline()
+        setNeedsSync(true)
+        return { ...note, edited: new Date().toISOString() }
+      })
+      .then(updatedNote => {
         const index = originalNotes.findIndex(n => n.id === updatedNote.id)
         const newNotes = [
           ...originalNotes.slice(0, index),
@@ -68,9 +110,8 @@ export default function useNotes() {
           ...originalNotes.slice(index + 1),
         ]
         setOriginalNotes(newNotes)
+        saveNotesToLocal(newNotes)
       })
-      .then(setOnline)
-      .catch(setOffline)
   }
 
   function findNote(id) {
@@ -79,13 +120,22 @@ export default function useNotes() {
 
   function undoLastOperation() {
     setDownload()
-    restoreState()
-      .then(setOnline)
-      .catch(setOffline)
-  }
-
-  function dismissUndo() {
-    saveState('', null)
+    sync()
+      .then(() => putNotes(lastState))
+      .then(notes => {
+        setOnline()
+        return notes
+      })
+      .catch(() => {
+        setOffline()
+        setNeedsSync(true)
+        return lastState
+      })
+      .then(notes => {
+        setOriginalNotes(notes)
+        saveNotesToLocal(notes)
+        dismissUndo()
+      })
   }
 
   return {
