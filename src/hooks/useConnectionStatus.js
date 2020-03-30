@@ -15,8 +15,7 @@ export default function useConnectionStatus() {
     setStatus('ONLINE')
   }
 
-  function setOffline(error) {
-    console.log(error)
+  function setOffline() {
     setStatus('OFFLINE')
   }
 

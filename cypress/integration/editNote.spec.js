@@ -1,22 +1,24 @@
-import { postNote, putNotes } from '../../src/util/services'
+import { putNotes, saveNotesToLocal } from '../../src/util/services'
 
 describe('Edit note', () => {
-  const originalText = 'This is a test note.'
+  const note = {
+    id: '5e7e6a93916cc409e1785c0f',
+    text: 'This is a test note',
+    created: '2020-03-27T21:05:23.667581Z',
+    edited: '2020-03-27T21:05:23.667581Z',
+  }
+
   const addedText = 'And this is an edit. '
-  const editedText = addedText + originalText
+  const editedText = addedText + note.text
 
   const editButtonFirstNote = '[class^="Note__ActionLinks"] :nth-child(2)'
 
-  before(() => {
-    cy.wrap(putNotes([]))
-    cy.wrap(postNote({ text: originalText }))
-  })
-  after(() => cy.wrap(putNotes([])))
-
   beforeEach(() => {
+    putNotes([note]).catch(() => saveNotesToLocal([note]))
     cy.visit('/')
     cy.get(editButtonFirstNote).click()
   })
+  afterEach(() => putNotes([]).catch(() => null))
 
   it('does not change the note on cancel', () => {
     cy.get('textarea').type(addedText)

@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { putNotes } from '../util/services'
 
-export default function useUndo(restore) {
+export default function useUndo() {
   const [lastOperation, setLastOperation] = useState('')
   const [lastState, setLastState] = useState(null)
 
@@ -10,16 +9,9 @@ export default function useUndo(restore) {
     setLastState(state)
   }
 
-  function restoreState() {
-    if (!lastState) {
-      return
-    }
-    return putNotes(lastState).then(notes => {
-      restore(notes)
-      setLastState(null)
-      setLastOperation('')
-    })
+  function dismissUndo() {
+    saveState('', null)
   }
 
-  return [lastOperation, saveState, restoreState]
+  return [lastOperation, lastState, saveState, dismissUndo]
 }

@@ -1,4 +1,5 @@
-import { putNotes, postNote } from '../../src/util/services'
+import { putNotes, saveNotesToLocal } from '../../src/util/services'
+import uid from 'uid'
 
 describe('Search notes', () => {
   const Texts = [
@@ -14,15 +15,17 @@ describe('Search notes', () => {
     'Notiz10 @tagA',
   ]
 
-  before(() => {
-    cy.wrap(putNotes([]))
-    Texts.forEach(text => {
-      cy.wrap(postNote({ text }))
+  beforeEach(() => {
+    const notes = Texts.map(text => {
+      const now = new Date().toISOString()
+      const id = uid(32)
+      return { text, id, created: now, edited: now }
     })
+    putNotes(notes).catch(() => saveNotesToLocal(notes))
+    cy.visit('/')
   })
-  after(() => cy.wrap(putNotes([])))
 
-  beforeEach(() => cy.visit('/'))
+  afterEach(() => putNotes([]).catch(() => null))
 
   it('searches for clicked tags', () => {
     cy.contains('@tagA')
