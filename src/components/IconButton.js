@@ -7,12 +7,21 @@ import {
   MdBackspace,
   MdSearch,
   MdClose,
+  MdUnfoldMore,
+  MdUnfoldLess,
 } from 'react-icons/md'
 
 IconButton.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  title: PropTypes.oneOf(['delete', 'edit', 'search', 'clear', 'close'])
-    .isRequired,
+  title: PropTypes.oneOf([
+    'delete',
+    'edit',
+    'search',
+    'clear',
+    'close',
+    'more',
+    'less',
+  ]).isRequired,
 }
 
 IconButton.defaultProps = {
@@ -29,6 +38,8 @@ const Icons = {
   search: <MdSearch />,
   clear: <MdBackspace />,
   close: <MdClose />,
+  more: <MdUnfoldMore />,
+  less: <MdUnfoldLess />,
 }
 const StyledButton = styled.button`
   color: inherit;

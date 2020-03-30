@@ -26,6 +26,8 @@ const iconOptions = {
   Delete: 'delete',
   Edit: 'edit',
   Search: 'search',
+  More: 'more',
+  Less: 'less',
 }
 
 const defaultValue = 5
