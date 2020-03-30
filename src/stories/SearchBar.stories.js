@@ -1,18 +1,20 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import StoryContainer from './StoryContainer'
-import Search from '../components/Search'
+import SearchBar from '../components/SearchBar'
 
 export default {
-  title: 'Search',
-  component: Search,
+  title: 'SearchBar',
+  component: SearchBar,
   decorators: [withKnobs],
 }
 
 export const Default = () => (
   <StoryContainer>
-    <Search
+    <SearchBar
+      folded={boolean('Folded', true)}
+      toggleFolded={action('Toggle fold')}
       searchTerm={text('Search term', 'Foobar')}
       onSearch={action('Search')}
     />

@@ -3,12 +3,19 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import IconButton from './IconButton'
 
-Search.propTypes = {
+SearchBar.propTypes = {
+  folded: PropTypes.bool.isRequired,
+  toggleFolded: PropTypes.func.isRequired,
   searchTerm: PropTypes.string.isRequired,
   onSearch: PropTypes.func.isRequired,
 }
 
-export default function Search({ searchTerm, onSearch }) {
+export default function SearchBar({
+  folded,
+  toggleFolded,
+  searchTerm,
+  onSearch,
+}) {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -16,7 +23,12 @@ export default function Search({ searchTerm, onSearch }) {
   }, [searchTerm])
 
   return (
-    <StyledSearch hasInput={search}>
+    <StyledSearchBar>
+      <FoldButton
+        title={folded ? 'more' : 'less'}
+        size="6"
+        onClick={toggleFolded}
+      />
       <input
         type="text"
         placeholder="Enter search"
@@ -25,7 +37,7 @@ export default function Search({ searchTerm, onSearch }) {
       />
       {search && <ClearButton title="clear" size="6" onClick={handleClear} />}
       <SearchButton title="search" size="6" onClick={() => onSearch(search)} />
-    </StyledSearch>
+    </StyledSearchBar>
   )
 
   function handleClear() {
@@ -34,9 +46,9 @@ export default function Search({ searchTerm, onSearch }) {
   }
 }
 
-const StyledSearch = styled.section`
+const StyledSearchBar = styled.section`
   display: flex;
-  padding: var(--size-2) var(--size-5) var(--size-5) var(--size-5);
+  padding: 0 var(--size-5) var(--size-1) var(--size-5);
   color: var(--neutral-8);
 
   input {
@@ -47,6 +59,10 @@ const StyledSearch = styled.section`
     border-bottom: 2px solid var(--neutral-3);
     padding-left: var(--size-1);
   }
+`
+const FoldButton = styled(IconButton)`
+  color: ${props => (props.title === 'more' ? 'inherit' : 'var(--primary-5)')};
+  transition: 0.3s color ease-in;
 `
 const SearchButton = styled(IconButton)``
 const ClearButton = styled(IconButton)`
