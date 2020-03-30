@@ -2,23 +2,27 @@ import React from 'react'
 import StoryContainer from './StoryContainer'
 import { action } from '@storybook/addon-actions'
 
-import Button from '../components/Button'
+import Button from '../components/Buttons/Button'
+import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
   title: 'Buttons',
   component: Button,
+  decorators: [withKnobs],
 }
 
-export const Normal = () => (
+export const Standard = () => (
   <StoryContainer>
-    <Button onClick={action('Button clicked')}>Normal</Button>
-  </StoryContainer>
-)
-
-export const Primary = () => (
-  <StoryContainer>
-    <Button primary onClick={action('Button clicked')}>
-      Primary
+    <Button
+      primary={select(
+        'Type',
+        { Secondary: false, Primary: true },
+        false,
+        'Button-Type-Group'
+      )}
+      onClick={action('Button clicked')}
+    >
+      Button
     </Button>
   </StoryContainer>
 )

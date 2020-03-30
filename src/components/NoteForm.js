@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tip from './Tip'
-import Button from './Button'
+import Button from './Buttons/Button'
 
 NoteForm.propTypes = {
   onSave: PropTypes.func.isRequired,
