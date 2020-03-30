@@ -1,6 +1,6 @@
 import React from 'react'
 import StoryContainer from './StoryContainer'
-import AddNoteButton from '../components/AddNoteButton'
+import AddNoteButton from '../components/Buttons/AddNoteButton'
 
 export default {
   title: 'Buttons',

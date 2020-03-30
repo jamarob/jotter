@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Timestamp from './Timestamp'
 import { replaceTags } from './Tag'
 import { useHistory } from 'react-router-dom'
-import IconButton from './IconButton'
+import IconButton from './Buttons/IconButton'
 
 Note.propTypes = {
   id: PropTypes.string.isRequired,

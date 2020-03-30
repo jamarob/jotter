@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import IconButton from './IconButton'
+import IconButton from './Buttons/IconButton'
 import useUndoMessage from '../hooks/useUndoMessage'
 
 UndoMessage.propTypes = {
