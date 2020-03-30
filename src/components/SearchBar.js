@@ -34,11 +34,17 @@ export default function SearchBar({
         placeholder="Enter search"
         value={search}
         onChange={e => setSearch(e.target.value)}
+        onClick={() => folded || toggleFolded()}
       />
       {search && <ClearButton title="clear" size="6" onClick={handleClear} />}
-      <SearchButton title="search" size="6" onClick={() => onSearch(search)} />
+      <SearchButton title="search" size="6" onClick={handleSearch} />
     </StyledSearchBar>
   )
+
+  function handleSearch() {
+    folded || toggleFolded()
+    onSearch(search)
+  }
 
   function handleClear() {
     setSearch('')
