@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import { MdSearch, MdBackspace } from 'react-icons/md'
+import IconButton from './IconButton'
 
 Search.propTypes = {
   searchTerm: PropTypes.string.isRequired,
@@ -23,8 +23,8 @@ export default function Search({ searchTerm, onSearch }) {
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
-      {search && <ClearIcon onClick={handleClear} />}
-      <SearchIcon onClick={() => onSearch(search)} />
+      {search && <ClearButton title="clear" size="6" onClick={handleClear} />}
+      <SearchButton title="search" size="6" onClick={() => onSearch(search)} />
     </StyledSearch>
   )
 
@@ -48,24 +48,7 @@ const StyledSearch = styled.section`
     padding-left: var(--size-1);
   }
 `
-
-const SearchIcon = styled(MdSearch)`
-  flex-shrink: 0;
-  font-size: var(--size-6);
-  margin-left: var(--size-2);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--primary-5);
-  }
-`
-const ClearIcon = styled(MdBackspace)`
-  flex-shrink: 0;
-  font-size: var(--size-6);
-  margin-left: var(--size-2);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--primary-5);
-  }
+const SearchButton = styled(IconButton)``
+const ClearButton = styled(IconButton)`
+  margin: 0 var(--size-1);
 `

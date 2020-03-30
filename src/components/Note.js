@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Timestamp from './Timestamp'
 import { replaceTags } from './Tag'
-import { MdDelete, MdModeEdit } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import IconButton from './IconButton'
 
 Note.propTypes = {
   id: PropTypes.string.isRequired,
@@ -23,16 +23,17 @@ export default function Note({
   onTagClick,
   onDelete,
 }) {
+  const history = useHistory()
   return (
     <StyledNote>
       <NoteHeader>
         <Timestamp created={created} edited={edited} />
-        <ActionLinks>
-          <MdDelete onClick={() => onDelete(id)} />
-          <Link to={'/edit/' + id}>
-            <MdModeEdit />
-          </Link>
-        </ActionLinks>
+        <DeleteButton title="delete" size="5" onClick={() => onDelete(id)} />
+        <EditButton
+          title="edit"
+          size="5"
+          onClick={() => history.push(`/edit/` + id)}
+        />
       </NoteHeader>
       {replaceTags(text, onTagClick)}
     </StyledNote>
@@ -57,17 +58,12 @@ const NoteHeader = styled.div`
   display: flex;
 `
 
-const ActionLinks = styled.div`
+const DeleteButton = styled(IconButton)`
+  color: var(--neutral-5);
   margin-left: auto;
+`
 
-  * {
-    margin-left: var(--size-1);
-    font-size: var(--size-5);
-    cursor: pointer;
-    color: var(--neutral-5);
-
-    &:hover {
-      color: var(--primary-5);
-    }
-  }
+const EditButton = styled(IconButton)`
+  color: var(--neutral-5);
+  margin-left: var(--size-2);
 `
