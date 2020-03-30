@@ -4,13 +4,16 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tip from './Tip'
 import Button from './Buttons/Button'
+import Timestamp from './Timestamp'
 
 NoteForm.propTypes = {
   onSave: PropTypes.func.isRequired,
   text: PropTypes.string,
+  created: PropTypes.string,
+  edited: PropTypes.string,
 }
 
-export default function NoteForm({ onSave, text }) {
+export default function NoteForm({ onSave, text, created, edited }) {
   const [noteText, setNoteText] = useState(text || '')
   useEffect(() => setNoteText(text || ''), [text])
   const history = useHistory()
@@ -19,16 +22,19 @@ export default function NoteForm({ onSave, text }) {
       <StyledTip>
         Prefix a word with <Tagchar>@</Tagchar> to turn it into a tag!
       </StyledTip>
+      {created && <StyledTimestamp created={created} edited={edited} />}
       <textarea
         autoFocus
         placeholder="Enter your note..."
         onChange={event => setNoteText(event.target.value)}
         value={noteText}
       ></textarea>
-      <Button onClick={handleCancel}>cancel</Button>
-      <Button primary onClick={handleSave}>
-        save
-      </Button>
+      <ButtonGroup>
+        <Button onClick={handleCancel}>cancel</Button>
+        <Button primary onClick={handleSave}>
+          save
+        </Button>
+      </ButtonGroup>
     </StyledNoteForm>
   )
 
@@ -46,18 +52,12 @@ export default function NoteForm({ onSave, text }) {
 }
 
 const StyledNoteForm = styled.main`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: min-content auto var(--size-7);
-  grid-template-areas:
-    'tip tip'
-    'textarea textarea'
-    'cancel save';
-  gap: var(--size-4);
+  display: flex;
+  flex-direction: column;
   margin: var(--size-5);
 
   textarea {
-    grid-area: textarea;
+    flex-grow: 1;
     padding: var(--size-2);
     border: none;
     box-shadow: var(--shadow);
@@ -65,11 +65,30 @@ const StyledNoteForm = styled.main`
     color: var(--neutral-1);
   }
 `
+
 const StyledTip = styled(Tip)`
-  grid-area: tip;
+  margin-bottom: var(--size-4);
+`
+
+const StyledTimestamp = styled(Timestamp)`
+  margin-bottom: var(--size-1);
 `
 
 const Tagchar = styled.span`
   color: var(--primary-3);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+`
+
+const ButtonGroup = styled.section`
+  display: flex;
+  margin-top: var(--size-5);
+
+  button:first-child {
+    width: 50%;
+    margin-right: var(--size-1);
+  }
+  button:last-child {
+    width: 50%;
+    margin-left: var(--size-2);
+  }
 `

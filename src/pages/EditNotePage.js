@@ -16,7 +16,7 @@ export default function EditNotePage({ findNote, updateNote, status }) {
   return (
     <>
       <Header page="EDIT" status={status} />
-      <NoteForm onSave={handleSave} text={note.text} />
+      <NoteForm onSave={handleSave} {...note} />
     </>
   )
 

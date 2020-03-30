@@ -9,9 +9,9 @@ Timestamp.propTypes = {
   edited: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 }
 
-export default function Timestamp({ created, edited }) {
+export default function Timestamp({ className, created, edited }) {
   return (
-    <StyledTimestamp>
+    <StyledTimestamp className={className}>
       <DateIcon />
       {localeDateString(created)}
       {edited > created && (
@@ -29,6 +29,7 @@ const StyledTimestamp = styled.div`
   align-items: center;
   color: var(--neutral-7);
   font-size: var(--size-4);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 `
 
 const DateIcon = styled(MdDateRange)`
