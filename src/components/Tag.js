@@ -1,22 +1,25 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { splitAtTag } from '../util/tags'
 
 Tag.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 }
 
-export default function Tag({ text, onClick }) {
-  return <StyledTag onClick={() => onClick(text)}>{text}</StyledTag>
+export default function Tag({ className, text, onClick }) {
+  return (
+    <StyledTag className={className} onClick={() => onClick(text)}>
+      {text}
+    </StyledTag>
+  )
 }
-
-const TAG_REG_EXP = /(@\w+)/
 
 const isTag = index => index % 2
 
 export function replaceTags(text, onTagClick) {
-  return text.split(TAG_REG_EXP).map((chunk, index) =>
+  return splitAtTag(text).map((chunk, index) =>
     isTag(index) ? (
       <Tag key={index} text={chunk} onClick={onTagClick}>
         {chunk}
