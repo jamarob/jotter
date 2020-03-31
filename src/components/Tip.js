@@ -5,7 +5,8 @@ import { FaLightbulb } from 'react-icons/fa'
 export default function Tip(props) {
   return (
     <StyledTip className={props.className}>
-      <Lightbulb /> <TipText>{props.children}</TipText>
+      <Lightbulb className="icon" />
+      <p className="text">{props.children}</p>
     </StyledTip>
   )
 }
@@ -13,17 +14,19 @@ export default function Tip(props) {
 const StyledTip = styled.div`
   display: flex;
   align-items: center;
+
+  .text {
+    font-family: Handlee;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    color: var(--neutral-5);
+  }
+
+  .icon {
+    font-size: var(--size-5);
+    margin-right: var(--size-3);
+    color: var(--neutral-3);
+  }
 `
 
-const TipText = styled.p`
-  font-family: Handlee;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  color: var(--neutral-5);
-`
-
-const Lightbulb = styled(FaLightbulb)`
-  font-size: var(--size-5);
-  margin-right: var(--size-3);
-  color: var(--neutral-3);
-`
+const Lightbulb = styled(FaLightbulb)``
