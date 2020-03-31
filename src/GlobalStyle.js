@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --size-0: 0;
     --size-1: 4px;
     --size-2: 8px;
     --size-3: 12px;
