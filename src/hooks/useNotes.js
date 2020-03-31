@@ -10,7 +10,7 @@ import {
   setNeedsSync,
   sync,
 } from '../util/services'
-import useSearch from './useSearch'
+import useNoteSearch from './useNoteSearch'
 import useUndo from './useUndo'
 import useConnectionStatus from './useConnectionStatus'
 import uid from 'uid'
@@ -21,7 +21,7 @@ const UPDATE = 'Note updated.'
 
 export default function useNotes() {
   const [originalNotes, setOriginalNotes] = useState([])
-  const [search, setSearch, searchedNotes] = useSearch(originalNotes)
+  const [search, setSearch, searchedNotes] = useNoteSearch(originalNotes)
   const [lastOperation, lastState, saveState, dismissUndo] = useUndo()
   const {
     status,
