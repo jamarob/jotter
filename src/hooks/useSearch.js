@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
-import { loadSearchTerm, saveSearchTerm } from '../util/services'
 import filterNotes from '../util/filterNotes'
 
 export default function useSearch(notes) {
   const [filtered, setFiltered] = useState(notes)
-  const [search, setSearch] = useState(loadSearchTerm())
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     setSearch(search)
     setFiltered(filterNotes(notes, search))
-    saveSearchTerm(search)
   }, [search, notes])
 
   return [search, setSearch, filtered]
