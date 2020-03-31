@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import IconButton from './Buttons/IconButton'
@@ -6,22 +6,20 @@ import IconButton from './Buttons/IconButton'
 SearchBar.propTypes = {
   folded: PropTypes.bool.isRequired,
   toggleFolded: PropTypes.func.isRequired,
-  searchTerm: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
 }
 
 export default function SearchBar({
   folded,
   toggleFolded,
-  searchTerm,
+  search,
+  setSearch,
   onSearch,
+  onClear,
 }) {
-  const [search, setSearch] = useState('')
-
-  useEffect(() => {
-    setSearch(searchTerm)
-  }, [searchTerm])
-
   return (
     <StyledSearchBar>
       <FoldButton
@@ -36,20 +34,10 @@ export default function SearchBar({
         onChange={e => setSearch(e.target.value)}
         onClick={() => folded || toggleFolded()}
       />
-      {search && <ClearButton title="clear" size="6" onClick={handleClear} />}
-      <SearchButton title="search" size="6" onClick={handleSearch} />
+      {search && <ClearButton title="clear" size="6" onClick={onClear} />}
+      <SearchButton title="search" size="6" onClick={onSearch} />
     </StyledSearchBar>
   )
-
-  function handleSearch() {
-    folded || toggleFolded()
-    onSearch(search)
-  }
-
-  function handleClear() {
-    setSearch('')
-    onSearch('')
-  }
 }
 
 const StyledSearchBar = styled.section`
