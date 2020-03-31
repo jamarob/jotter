@@ -9,6 +9,7 @@ import {
   MdClose,
   MdUnfoldMore,
   MdUnfoldLess,
+  MdAdd,
 } from 'react-icons/md'
 
 IconButton.propTypes = {
@@ -21,6 +22,7 @@ IconButton.propTypes = {
     'close',
     'more',
     'less',
+    'add',
   ]).isRequired,
 }
 
@@ -40,6 +42,7 @@ const Icons = {
   close: <MdClose />,
   more: <MdUnfoldMore />,
   less: <MdUnfoldLess />,
+  add: <MdAdd />,
 }
 const StyledButton = styled.button`
   color: inherit;

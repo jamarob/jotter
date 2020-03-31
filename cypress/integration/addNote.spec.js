@@ -7,7 +7,7 @@ describe('Add note', () => {
 
   beforeEach(() => {
     cy.visit('/')
-    cy.get('a[href="/add"]').click()
+    cy.get('button[title="add"]').click()
   })
   it('goes to the add page', () => {
     cy.location().should(loc => {

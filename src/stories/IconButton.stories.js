@@ -14,13 +14,14 @@ export const Icon = () => (
   <StoryContainer>
     <IconButton
       onClick={action('Button clicked')}
-      title={select('Type', iconOptions, 'clear', groupId)}
+      title={select('Type', iconOptions, 'add', groupId)}
       size={number('Size', defaultValue, sizeOptions, groupId)}
     />
   </StoryContainer>
 )
 
 const iconOptions = {
+  Add: 'add',
   Clear: 'clear',
   Close: 'close',
   Delete: 'delete',
