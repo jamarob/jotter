@@ -8,10 +8,14 @@ Tag.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-export default function Tag({ className, text, onClick }) {
+export default function Tag(props) {
   return (
-    <StyledTag className={className} onClick={() => onClick(text)}>
-      {text}
+    <StyledTag
+      className={props.className}
+      onClick={() => props.onClick(props.text)}
+    >
+      {props.text}
+      {props.children}
     </StyledTag>
   )
 }
@@ -21,9 +25,7 @@ const isTag = index => index % 2
 export function replaceTags(text, onTagClick) {
   return splitAtTag(text).map((chunk, index) =>
     isTag(index) ? (
-      <Tag key={index} text={chunk} onClick={onTagClick}>
-        {chunk}
-      </Tag>
+      <Tag key={index} text={chunk} onClick={onTagClick}></Tag>
     ) : (
       chunk
     )
