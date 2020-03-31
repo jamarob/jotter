@@ -41,16 +41,6 @@ function promiseStatus200(response) {
   })
 }
 
-const SEARCH_TERM_KEY = 'SEARCH_TERM'
-
-export function loadSearchTerm() {
-  return localStorage.getItem(SEARCH_TERM_KEY) || ''
-}
-
-export function saveSearchTerm(searchTerm) {
-  localStorage.setItem(SEARCH_TERM_KEY, searchTerm)
-}
-
 const NOTES_KEY = 'NOTES'
 
 export function loadNotesFromLocal() {
