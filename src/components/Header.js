@@ -28,7 +28,7 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   padding: 0 var(--size-5);
-  height: var(--size-7);
+  height: var(--size-6);
 
   background: var(--neutral-1);
   color: var(--neutral-10);

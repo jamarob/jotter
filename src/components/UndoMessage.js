@@ -12,7 +12,7 @@ UndoMessage.propTypes = {
 
 export default function UndoMessage({ text, onUndo, onDismiss }) {
   const { remaining, show, ref, handleUndo, handleDismiss } = useUndoMessage({
-    start: 3,
+    start: 5,
     onUndo,
     onDismiss,
   })
@@ -29,14 +29,16 @@ export default function UndoMessage({ text, onUndo, onDismiss }) {
 const StyledUndoMessage = styled.section`
   display: flex;
   align-items: center;
+
   width: 100%;
+  height: var(--size-6);
 
   position: absolute;
-  top: var(--size-7);
+  top: 0;
   left: ${props => (props.show ? 0 : '-105%')};
   transition: 0.3s left ease-in-out;
 
-  padding: var(--size-1) calc(var(--size-5) + var(--size-1));
+  padding: var(--size-1) var(--size-5);
   color: var(--neutral-9);
   background: var(--neutral-1);
   font-size: var(--size-4);
