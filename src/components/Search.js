@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 
 import SearchBar from './SearchBar'
 import Tip from './Tip'
-import IconButton from './Buttons/IconButton'
+import IconButton from './IconButton'
 import TagList from './TagList'
 import { useSearch } from '../hooks/useSearch'
 
