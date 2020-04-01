@@ -1,28 +1,16 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
-
+import React from 'react'
 import { GiBookmark } from 'react-icons/gi'
 import { MdAddCircle, MdCreate } from 'react-icons/md'
 
 PageLogo.propTypes = {
-  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
+  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']),
 }
 
 export default function PageLogo({ className, page }) {
-  return (
-    <>
-      {page === 'ADD' ? (
-        <CreateLogo className={className} />
-      ) : page === 'EDIT' ? (
-        <EditLogo className={className} />
-      ) : (
-        <AppLogo className={className} />
-      )}
-    </>
-  )
+  return {
+    HOME: <GiBookmark className={className} />,
+    ADD: <MdAddCircle className={className} />,
+    EDIT: <MdCreate className={className} />,
+  }[page]
 }
-
-const AppLogo = styled(GiBookmark)``
-const CreateLogo = styled(MdAddCircle)``
-const EditLogo = styled(MdCreate)``

@@ -6,9 +6,8 @@ import ConnectionStatus from './ConnectionStatus'
 import PageHeading from './PageHeading'
 
 Header.propTypes = {
-  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
-  status: PropTypes.oneOf(['ONLINE', 'OFFLINE', 'DOWNLOAD', 'UPLOAD'])
-    .isRequired,
+  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']),
+  status: PropTypes.oneOf(['ONLINE', 'OFFLINE', 'DOWNLOAD', 'UPLOAD']),
 }
 
 Header.defaultProps = {
@@ -19,33 +18,28 @@ export default function Header({ page, status }) {
   return (
     <StyledHeader>
       <StyledPageLogo page={page} />
-      <PageHeading page={page} />
-      <StyledConnectionStatus status={status} />
+      <StyledPageHeading page={page} />
+      <ConnectionStatus status={status} />
     </StyledHeader>
   )
 }
 
 const StyledHeader = styled.header`
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 0 var(--size-5);
   height: var(--size-7);
 
   background: var(--neutral-1);
   color: var(--neutral-10);
 
   font-size: var(--size-5);
-
-  h1 {
-    font-size: var(--size-5);
-    font-family: Handlee;
-    margin-right: auto;
-  }
 `
 
 const StyledPageLogo = styled(PageLogo)`
-  margin: 0 var(--size-3) 0 var(--size-5);
+  margin-right: var(--size-3);
 `
-const StyledConnectionStatus = styled(ConnectionStatus)`
-  margin: 0 var(--size-5) 0 0;
+
+const StyledPageHeading = styled(PageHeading)`
+  margin-right: auto;
 `
