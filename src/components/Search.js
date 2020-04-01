@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 import SearchBar from './SearchBar'
-import { getTagsFromNotes } from '../util/tags'
 import Tip from './Tip'
 import IconButton from './Buttons/IconButton'
 import TagList from './TagList'
+import { useSearch } from '../hooks/useSearch'
 
 Search.propTypes = {
   onSearch: PropTypes.func.isRequired,
@@ -24,22 +24,18 @@ Search.propTypes = {
 export default function Search({ searchTerm, onSearch, notes }) {
   const history = useHistory()
   const [folded, setFolded] = useState(true)
-  const [tags, setTags] = useState([])
-  const [search, setSearch] = useState('')
-  const [query, setQuery] = useState([])
-
-  useEffect(() => {
-    setSearch(searchTerm)
-  }, [searchTerm])
-
-  useEffect(() => {
-    setTags(getTagsFromNotes(notes))
-  }, [notes])
-
-  useEffect(() => {
-    onSearch(query.join(' '))
-  }, [query, onSearch])
-
+  const {
+    tags,
+    query,
+    toggleInQuery,
+    clearSearch,
+    search,
+    setSearch,
+  } = useSearch({
+    searchTerm,
+    notes,
+    onSearch,
+  })
   return (
     <StyledSearch folded={folded}>
       <AddNoteButton
@@ -56,27 +52,12 @@ export default function Search({ searchTerm, onSearch, notes }) {
         toggleFolded={() => setFolded(!folded)}
         search={search}
         setSearch={setSearch}
-        onSearch={handleSearch}
-        onClear={handleClear}
+        onSearch={() => onSearch(search)}
+        onClear={clearSearch}
       />
       <NumberOfNotes>{notes.length} jots</NumberOfNotes>
     </StyledSearch>
   )
-
-  function handleSearch() {
-    onSearch(search)
-  }
-
-  function handleClear() {
-    setSearch('')
-    setQuery([])
-  }
-
-  function toggleInQuery(tag) {
-    setQuery(
-      query.includes(tag) ? query.filter(t => t !== tag) : [...query, tag]
-    )
-  }
 }
 
 const StyledSearch = styled.section`
@@ -100,8 +81,8 @@ const AddNoteButton = styled(IconButton)`
 `
 
 const AdvancedSearch = styled.section`
-  height: ${props => (props.folded ? '0' : 'calc(100vh / 2)')};
-  transition: 0.3s height ease-in-out;
+  height: ${props => (props.folded ? '0' : 'calc(100vh / 3)')};
+  transition: 0.3s ease-in-out;
   margin: var(--size-1) var(--size-5);
   overflow-y: auto;
 `
