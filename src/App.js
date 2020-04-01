@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import useNotes from './hooks/useNotes'
 import AddNotePage from './pages/AddNotePage'
 import BrowseNotes from './pages/BrowseNotes'
@@ -21,7 +21,7 @@ export default function App() {
   } = useNotes()
   return (
     <Switch>
-      <Route path="/notes">
+      <Route exact path="/">
         <BrowseNotes
           status={status}
           notes={notes}
@@ -42,9 +42,6 @@ export default function App() {
           updateNote={updateNote}
           status={status}
         />
-      </Route>
-      <Route path="/">
-        <Redirect to="/notes" />
       </Route>
     </Switch>
   )

@@ -24,7 +24,7 @@ describe('Add note', () => {
       .contains('cancel')
       .click()
     cy.location().should(loc => {
-      expect(loc.pathname).to.equal('/notes')
+      expect(loc.pathname).to.equal('/')
     })
   })
 
@@ -43,7 +43,7 @@ describe('Add note', () => {
       .contains('save')
       .click()
     cy.location().should(loc => {
-      expect(loc.pathname).to.equal('/notes')
+      expect(loc.pathname).to.equal('/')
     })
     cy.get('[class^="NotesList"]')
       .contains('This is a test note.')

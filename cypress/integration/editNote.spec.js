@@ -26,7 +26,7 @@ describe('Edit note', () => {
       .contains('cancel')
       .click()
     cy.location().should(loc => {
-      expect(loc.pathname).to.equal('/notes')
+      expect(loc.pathname).to.equal('/')
     })
     cy.contains(editedText).should('not.exist')
   })
@@ -37,7 +37,7 @@ describe('Edit note', () => {
       .contains('save')
       .click()
     cy.location().should(loc => {
-      expect(loc.pathname).to.equal('/notes')
+      expect(loc.pathname).to.equal('/')
     })
     cy.contains(editedText).should('exist')
   })
