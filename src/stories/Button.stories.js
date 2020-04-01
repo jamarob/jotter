@@ -2,7 +2,7 @@ import React from 'react'
 import StoryContainer from './StoryContainer'
 import { action } from '@storybook/addon-actions'
 
-import Button from '../components/Buttons/Button'
+import Button from '../components/Button'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {

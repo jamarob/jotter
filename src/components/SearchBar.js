@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import IconButton from './Buttons/IconButton'
+import IconButton from './IconButton'
 
 SearchBar.propTypes = {
   folded: PropTypes.bool.isRequired,

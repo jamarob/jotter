@@ -2,7 +2,7 @@ import React from 'react'
 import StoryContainer from './StoryContainer'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, select, number } from '@storybook/addon-knobs'
-import IconButton from '../components/Buttons/IconButton'
+import IconButton from '../components/IconButton'
 
 export default {
   title: 'Buttons',
