@@ -53,6 +53,12 @@ const GlobalStyle = createGlobalStyle`
     background: var(--neutral-10);
   }
 
+  h1 {
+    font-size: var(--size-5);
+    font-family: Handlee, cursive;
+    text-transform: uppercase;
+  }
+
   input, textarea, button {
     font-size: 1em;
   }

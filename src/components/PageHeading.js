@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
 
 PageHeading.propTypes = {
-  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']).isRequired,
+  page: PropTypes.oneOf(['HOME', 'ADD', 'EDIT']),
 }
 
 const Titles = {
@@ -13,12 +12,5 @@ const Titles = {
 }
 
 export default function PageHeading({ page, className }) {
-  return (
-    <StyledPageHeading className={className}>{Titles[page]}</StyledPageHeading>
-  )
+  return <h1 className={className}>{Titles[page]}</h1>
 }
-
-const StyledPageHeading = styled.h1`
-  font-family: Handlee;
-  text-transform: uppercase;
-`
