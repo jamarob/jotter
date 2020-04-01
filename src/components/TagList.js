@@ -38,10 +38,10 @@ const StyledTagList = styled.section`
 
 const StyledTag = styled(Tag)`
   padding: var(--size-1);
-  margin: var(--size-2);
+  margin: var(--size-1);
   background: ${props => (props.selected ? 'var(--primary-3)' : 'white')};
   color: ${props => (props.selected ? 'white' : 'var(--primary-3)')};
-  font-size: 1.2em;
+  font-size: 1em;
   box-shadow: 1px 1px 1px 1px var(--neutral-5);
   transition: 0.3s ease;
 `
