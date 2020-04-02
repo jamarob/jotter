@@ -11,10 +11,5 @@ const FUSE_OPTIONS = {
 }
 
 export default function filterNotes(notes, search) {
-  if (search === '') {
-    return notes
-  } else {
-    const fuse = new Fuse(notes, FUSE_OPTIONS)
-    return fuse.search(search)
-  }
+  return search ? new Fuse(notes, FUSE_OPTIONS).search(search) : notes
 }
