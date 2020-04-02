@@ -10,6 +10,6 @@ export default {
 
 export const Default = () => (
   <StoryContainer>
-    <Tag text="@someTag" onClick={action('Tag was clicked')} />
+    <Tag text="#someTag" onClick={action('Tag was clicked')} />
   </StoryContainer>
 )
