@@ -1,11 +1,13 @@
-const TAG_REG_EXP = /(@\w+)/
+const TAG_REG_EXP = /(#\w+)/
 
 export function splitAtTag(text) {
   return text.split(TAG_REG_EXP)
 }
 
+const isTag = (_, index) => index % 2 !== 0
+
 export function getTagsFromText(text) {
-  return splitAtTag(text).filter((_, index) => index % 2 !== 0)
+  return splitAtTag(text).filter(isTag)
 }
 
 export function getTagsFromNotes(notes) {
@@ -17,13 +19,6 @@ export function getTagsFromNotes(notes) {
 }
 
 function compareTags(tag1, tag2) {
-  const a = tag1.toLowerCase()
-  const b = tag2.toLowerCase()
-  if (a < b) {
-    return -1
-  }
-  if (b < a) {
-    return 1
-  }
-  return 0
+  // tags come from a set, so check for equality is not needed
+  return tag1.toLowerCase() < tag2.toLowerCase() ? -1 : 1
 }

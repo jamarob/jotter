@@ -20,7 +20,7 @@ export default function NoteForm({ onSave, text, created, edited }) {
   return (
     <StyledNoteForm>
       <StyledTip>
-        Prefix a word with <Tagchar>@</Tagchar> to turn it into a tag!
+        Prefix a word with <Tagchar>#</Tagchar> to turn it into a tag!
       </StyledTip>
       {created && <StyledTimestamp created={created} edited={edited} />}
       <textarea
