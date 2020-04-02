@@ -12,26 +12,26 @@ A live demo is available [here](https://capstone-note-app.firebaseapp.com).
 
 Clone this repo and run
 
-### `$ npm start`
+#### `$ npm start`
 
-to test out the latest version on `http://localhost:3000`
+to start the development server on `http://localhost:3000`
 
-### `$ npm run server:dev`
-
-**Prerequisites:** Java 13 and mongodb running
-
-to start the local development server on `http://localhost:8080`.
-
-### `$ npm run test`
-
-to run the unit tests using Jest.
-
-### `$ npm run cypress:local`
-
-to run the end-to-end test using Cypress.
-
-### `$ npm run cypress:server`
+#### `$ npm run server:dev`
 
 **Prerequisites:** Java 13 and mongodb running
 
-to run the end-to-end test using Cypress with the local test server on `http://localhost:8080`.
+to start the spring backend on `http://localhost:8080`
+
+#### `$ npm run test`
+
+to run the unit tests using Jest
+
+#### `$ npm run cypress:local`
+
+to run the end-to-end tests using Cypress.
+
+#### `$ npm run cypress:server`
+
+**Prerequisites:** Java 13 and mongodb running
+
+to run the end-to-ends test using Cypress with the spring backend on `http://localhost:8080`
