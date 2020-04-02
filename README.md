@@ -14,20 +14,24 @@ Clone this repo and run
 
 ### `$ npm start`
 
-to test out a version with local storage.
+to test out the latest version on `http://localhost:3000`
 
 ### `$ npm run server:dev`
 
-to start the local development server. You will need **Java 13** and **mongodb** running.
+**Prerequisites:** Java 13 and mongodb running
+
+to start the local development server on `http://localhost:8080`.
 
 ### `$ npm run test`
 
-to run the tests.
+to run the unit tests using Jest.
 
 ### `$ npm run cypress:local`
 
-to start the cypress tests with just local storage. You will need **Java 13** and **mongodb** running.
+to run the end-to-end test using Cypress.
 
 ### `$ npm run cypress:server`
 
-to start the cypress tests with the local test server. You will need **Java 13** and **mongodb** running.
+**Prerequisites:** Java 13 and mongodb running
+
+to run the end-to-end test using Cypress with the local test server on `http://localhost:8080`.
