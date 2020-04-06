@@ -1,43 +1,38 @@
-import React, { useState } from 'react'
-import { decorate } from '@storybook/addon-actions'
-import StoryContainer from './StoryContainer'
+import { action } from '@storybook/addon-actions'
+import React from 'react'
 import SearchBar from '../components/SearchBar'
+import StoryContainer from './StoryContainer'
 
 export default {
   title: 'SearchBar',
   component: SearchBar,
 }
 
-export const Default = () => {
-  const [folded, setFolded] = useState(true)
-  const [search, setSearch] = useState('Foobar')
-
-  const doSearch = decorate([_ => [search]])
-
-  const clearSearch = decorate([
-    _ => {
-      setSearch('')
-      return ['']
-    },
-  ])
-
-  const toggleFolded = decorate([
-    _ => {
-      const toggled = !folded
-      setFolded(toggled)
-      return [toggled]
-    },
-  ])
-
+export const Empty = () => {
   return (
     <StoryContainer>
       <SearchBar
-        folded={folded}
-        toggleFolded={toggleFolded.action('Toggle folded')}
-        search={search}
-        setSearch={setSearch}
-        onSearch={doSearch.action('Search')}
-        onClear={clearSearch.action('Clear search')}
+        folded={true}
+        toggleFolded={action('Toggle folded')}
+        search=""
+        setSearch={action('Set search')}
+        onSearch={action('Do search')}
+        onClear={action('Clear search')}
+      />
+    </StoryContainer>
+  )
+}
+
+export const Input = () => {
+  return (
+    <StoryContainer>
+      <SearchBar
+        folded={true}
+        toggleFolded={action('Toggle folded')}
+        search="Something"
+        setSearch={action('Set search')}
+        onSearch={action('Do search')}
+        onClear={action('Clear search')}
       />
     </StoryContainer>
   )

@@ -1,0 +1,591 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Buttons Icon 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <button
+    className="sc-AxiKw htyzIa"
+    onClick={[Function]}
+    size={5}
+    title="add"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Buttons Standard 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <button
+    className="sc-AxirZ idrcpb"
+    onClick={[Function]}
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Storyshots Header Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <header
+    className="Header__StyledHeader-sc-1bpsxor-0 kPauMR"
+  >
+    <svg
+      className="Header__StyledPageLogo-sc-1bpsxor-1 dolKYT"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M161.22 19.563l-2.5 5.375-106.44 225.5-1 2.093c-24.493 28.208-34.917 58.587-33.593 88.19 1.38 30.852 15.12 60.388 36.376 86.81l2.812 3.5h49.72c4.817-3.836 8.93-7.817 12.405-12.03 1.758-2.132 3.38-4.358 4.875-6.656H65.97c-17.813-23.187-28.526-47.848-29.626-72.438-1.123-25.11 7.337-50.594 29.937-76.125H498.157l-5.25-12.874-91.844-225.5-2.375-5.843H161.22zm11.843 18.687h177.343l52.656 41.594 38.407 94.28-58.845 70.94H75.47L173.062 38.25zM75.156 282.625c-15.31 18.98-20.975 37.778-20.125 56.438.84 18.398 8.276 36.95 20.5 54.468h57.19c4.392-13.517 6.344-29.847 6.78-50.436h-16.188v-18.688h16.313v-.187h115.749v.186h17.156v18.688h-17.25c-.287 17.8-1.447 34.638-4 50.437h221.626c-9.034-36.872-9.112-74.006-.03-110.905H75.155zm83 60.28c-.77 37.698-6.46 65.83-24.72 87.97-14.595 17.7-36.19 30.747-67.28 42.813 8.69 1.658 17.214 3.225 26.53 5.25 14.048 3.052 27.912 6.338 39.033 9.25 5.56 1.455 10.44 2.826 14.374 4.062 1.94.61 3.533 1.074 5.03 1.625 35.245-13.464 55.78-32.897 68.345-58.72 11.944-24.55 16.287-55.713 16.936-92.25h-78.25zm89.25 69.44c-1.632 6.425-3.532 12.668-5.812 18.686h257.03v-18.686H247.407z"
+      />
+    </svg>
+    <h1
+      className="Header__StyledPageHeading-sc-1bpsxor-2 ccDMQD"
+    >
+      Jotter
+    </h1>
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17 15.18 9l1.41 1.41L10 17z"
+      />
+    </svg>
+  </header>
+</div>
+`;
+
+exports[`Storyshots Note Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <section
+    className="Note__StyledNote-o0wsje-0 fRoAVe"
+  >
+    <div
+      className="Note__NoteHeader-o0wsje-1 fSJcJh"
+    >
+      <div
+        className="Timestamp__StyledTimestamp-sc-3gr63y-0 hRHNHG"
+      >
+        <svg
+          className="Timestamp__DateIcon-sc-3gr63y-1 gEfTlX"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+          />
+        </svg>
+        4/1/2020
+         · 
+        4/2/2020
+      </div>
+      <button
+        className="sc-AxiKw htyzIa Note__DeleteButton-o0wsje-2 epftxd"
+        onClick={[Function]}
+        size="5"
+        title="delete"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </button>
+      <button
+        className="sc-AxiKw htyzIa Note__EditButton-o0wsje-3 gXCmII"
+        onClick={[Function]}
+        size="5"
+        title="edit"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
+      </button>
+    </div>
+    Lorem ipsum dolor sit amet, @consetetur sadipscing elitr, @sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At @vero eos et accusam et justo duo dolores et ea rebum. Stet clita @kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  </section>
+</div>
+`;
+
+exports[`Storyshots NoteForm Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <main
+    className="NoteForm__StyledNoteForm-ddzty3-0 kNLLuE"
+  >
+    <div
+      className="Tip__StyledTip-sc-1tt5n1c-0 cSpozw NoteForm__StyledTip-ddzty3-1 hagIrj"
+    >
+      <svg
+        className="Tip__Lightbulb-sc-1tt5n1c-1 dChCAJ icon"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 352 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"
+        />
+      </svg>
+      <p
+        className="text"
+      >
+        Prefix a word with 
+        <span
+          className="NoteForm__Tagchar-ddzty3-3 juOpZy"
+        >
+          #
+        </span>
+         to turn it into a tag!
+      </p>
+    </div>
+    <textarea
+      autoFocus={true}
+      onChange={[Function]}
+      placeholder="Enter your note..."
+      value=""
+    />
+    <section
+      className="NoteForm__ButtonGroup-ddzty3-4 bZcPKU"
+    >
+      <button
+        className="sc-AxirZ idrcpb"
+        onClick={[Function]}
+      >
+        cancel
+      </button>
+      <button
+        className="sc-AxirZ eDRjsv"
+        onClick={[Function]}
+      >
+        save
+      </button>
+    </section>
+  </main>
+</div>
+`;
+
+exports[`Storyshots SearchBar Empty 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <section
+    className="SearchBar__StyledSearchBar-l8vrs9-0 fPXTCk"
+  >
+    <button
+      className="sc-AxiKw gEBtsJ SearchBar__FoldButton-l8vrs9-1 iliNgr"
+      onClick={[Function]}
+      size="6"
+      title="more"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"
+        />
+      </svg>
+    </button>
+    <input
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Enter search"
+      type="text"
+      value=""
+    />
+    
+    <button
+      className="sc-AxiKw gEBtsJ SearchBar__SearchButton-l8vrs9-2 glsuUc"
+      onClick={[Function]}
+      size="6"
+      title="search"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+    </button>
+  </section>
+</div>
+`;
+
+exports[`Storyshots SearchBar Input 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <section
+    className="SearchBar__StyledSearchBar-l8vrs9-0 fPXTCk"
+  >
+    <button
+      className="sc-AxiKw gEBtsJ SearchBar__FoldButton-l8vrs9-1 iliNgr"
+      onClick={[Function]}
+      size="6"
+      title="more"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"
+        />
+      </svg>
+    </button>
+    <input
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Enter search"
+      type="text"
+      value="Something"
+    />
+    <button
+      className="sc-AxiKw gEBtsJ SearchBar__ClearButton-l8vrs9-3 eSDQPQ"
+      onClick={[Function]}
+      size="6"
+      title="clear"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z"
+        />
+      </svg>
+    </button>
+    <button
+      className="sc-AxiKw gEBtsJ SearchBar__SearchButton-l8vrs9-2 glsuUc"
+      onClick={[Function]}
+      size="6"
+      title="search"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+    </button>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Tag Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <span
+    className="Tag__StyledTag-uysf46-0 eCMbgp"
+    onClick={[Function]}
+  >
+    #someTag
+  </span>
+</div>
+`;
+
+exports[`Storyshots Timestamp Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <div
+    className="Timestamp__StyledTimestamp-sc-3gr63y-0 hRHNHG"
+  >
+    <svg
+      className="Timestamp__DateIcon-sc-3gr63y-1 gEfTlX"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+      />
+    </svg>
+    4/1/2020
+     · 
+    4/2/2020
+  </div>
+</div>
+`;
+
+exports[`Storyshots Tip Children 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <div
+    className="Tip__StyledTip-sc-1tt5n1c-0 cSpozw"
+  >
+    <svg
+      className="Tip__Lightbulb-sc-1tt5n1c-1 dChCAJ icon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 352 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"
+      />
+    </svg>
+    <p
+      className="text"
+    >
+      When in doubt press the 
+      <button>
+        Button
+      </button>
+      .
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Tip Text 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <div
+    className="Tip__StyledTip-sc-1tt5n1c-0 cSpozw"
+  >
+    <svg
+      className="Tip__Lightbulb-sc-1tt5n1c-1 dChCAJ icon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 352 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"
+      />
+    </svg>
+    <p
+      className="text"
+    >
+      Keep calm and always carry a towel!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots UndoMessage Default 1`] = `
+<div
+  className="sc-AxjAm hGgWbO"
+>
+  <section
+    className="sc-AxhCb foUiCE"
+  >
+    Last action.
+     
+    <button
+      className="sc-AxhUy gtQxIA"
+      onClick={[Function]}
+    >
+      UNDO
+    </button>
+    <div
+      className="sc-AxheI dUVxcH"
+    >
+      (
+      5
+      )
+    </div>
+    <button
+      className="sc-AxiKw htyzIa sc-AxgMl kCrGSE"
+      onClick={[Function]}
+      size="5"
+      title="close"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </button>
+  </section>
+</div>
+`;
