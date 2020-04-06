@@ -8,6 +8,8 @@ Instead of relying on sorting notes into hierachies, **Jotter** makes heavy use 
 
 A live demo is available [here](https://capstone-note-app.firebaseapp.com).
 
+The code for a suitable REST backend can be found [here](https://github.com/jamarob/jotterbackend).
+
 ## Available scripts
 
 Clone this repo and run
