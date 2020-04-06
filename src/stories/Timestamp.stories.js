@@ -11,6 +11,9 @@ export default {
 
 export const Default = () => (
   <StoryContainer>
-    <Timestamp created={date('created')} edited={date('edited')} />
+    <Timestamp
+      created={date('created', new Date('2020-03-31T23:45:14.165+00:00'))}
+      edited={date('edited', new Date('2020-04-01T23:09:28.958+00:00'))}
+    />
   </StoryContainer>
 )
